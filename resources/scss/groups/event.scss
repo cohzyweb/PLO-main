@@ -1,0 +1,38 @@
+@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/button';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+// Event Content List Grid
+.event-content {
+  width: 100%;
+  padding-top: 50px;
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    width: 100%;
+
+    @media screen and (max-width: 850px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 15px;
+    }
+  }
+
+  &-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: #021a21;
+    font-family: 'YuGothic', sans-serif;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,110 @@
+@use "../../global/vars" as *;
+@use "../../mixins/font" as *;
+@use "../../global/setting" as *;
+
+.access-section {
+  background: rgba(89, 2, 2, 0.80);
+  padding: 30px 0px;
+}
+
+@media screen and (max-width: 850px) {
+  .access-section {
+    padding: 15px 0px;
+  }
+}
+
+.access-title {
+  @include Hiragino_Mincho_Pro_W6();
+  font-weight: 600;
+  color: #FEFEFE;
+  @include responsive-font(38px, 40px);
+  text-align: center;
+}
+
+.map-title {
+  @include Hiragino_Mincho_Pro_W6();
+  font-weight: 600;
+  color: #FEFEFE;
+  @include responsive-font(38px, 40px);
+  text-align: center;
+  margin-top: 60px;
+}
+.access-content {
+  padding: 20px 30px 0px 30px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 850px) {
+  .access-content {
+    padding: 10px 15px 0px 15px;
+  }
+}
+
+.access-content-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .access-content-item {
+    display: block;
+    width: 100%;
+  }
+  .access-content-item h2 {
+    width: 100% !important;
+  }
+  .access-content-item p {
+    width: 100% !important;
+    text-align: center;
+  }
+}
+.access-content-item h2 {
+  display: flex;
+  width: 150px;
+  padding: 5px 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(---N__, #FEFEFE);
+  background: var(---N_, #D90D32);
+  @include Hiragino_Mincho_Pro_W6();
+  @include responsive-font(20px, 20px);
+  font-weight: 700;
+}
+
+.access-content-item p {
+  color: var(---N___, #FEFEFE);
+  @include YuGothic();
+  @include responsive-font(20px, 20px);
+  font-weight: 700;
+}
+
+.map-content {
+  padding: 30px 30px 0px 30px;
+  margin: 0px 30px;
+  // width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 850px) {
+  .map-content {
+    padding: 0px 0px;
+    margin: 0px 15px;
+  }
+}
+
+.map-content img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.map-content iframe {
+  width: 100%;
+  height: 100%;
+  // object-fit: cover;
+}

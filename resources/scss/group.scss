@@ -1,0 +1,46 @@
+/**
+ * Group page styles
+ */
+
+@use 'global/vars' as *;
+@use 'global/reset';
+@use 'global/base';
+@use 'global/utils';
+// @use 'group/common';
+// @use 'group/header';
+// @use 'group/drawer';
+// @use 'group/mv';
+// @use 'group/newface';
+// @use 'group/shop';
+// @use 'group/footer';
+// @use 'group/newcomer';
+// @use 'group/search';
+// @use 'group/eventlist';
+// @use 'group/new';
+// @use 'group/banner';
+@use 'group/sidebar';
+
+.mock {
+  width: 100%;
+
+  &.mock-1 {
+    @media #{media-query(sm)} {
+    }
+    @media #{media-query(md)} {
+    }
+    @media #{media-query(lg)} {
+      margin: 120px 0 0;
+    }
+  }
+}
+.mock img {
+  width: 100%;
+  height: auto;
+}
+html.wf-loading body {
+  visibility: hidden; /* 読み込み中は隠す */
+}
+
+html.wf-inactive body {
+  font-family: sans-serif; /* 読み込み失敗時のフォールバック */
+}

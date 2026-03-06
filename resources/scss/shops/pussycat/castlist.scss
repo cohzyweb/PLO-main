@@ -1,0 +1,33 @@
+// Import global variables and utilities
+@use '../../global/vars' as *;
+@use '../../mixins/font' as *;
+@use './component/schedule-card' as *;
+@use './component/pagination' as *;
+
+.castlist-card-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    @media #{media-query(xl)} {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    gap: 1.25rem;
+    padding: 1.875rem;
+    // background: var(---N, linear-gradient(90deg, rgba(42, 26, 8, 0.70) 58.65%, rgba(0, 0, 0, 0.00) 100%));
+    background: var(---N, rgba(0,0,0,0.6));
+}
+    
+  @media (max-width: 1400px) {
+    .castlist-card-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .castlist-card-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .castlist-pagination {
+    padding: 4rem 0rem;
+    text-align: center;
+  }

@@ -1,0 +1,54 @@
+// Import global variables and utilities
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+
+.page-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  @media #{media-query(xs)} {
+    gap: 3px;
+  }
+}
+
+.page-nav-btn,
+.page-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background: $white;
+  color: var(---N___, $black);
+  text-decoration: none;
+  @include Caveat();
+  font-size: 16px;
+  font-weight: 400;
+
+  @media screen and (max-width: 850px) {
+    min-width: 30px;
+    height: 36px;
+    padding: 0 0px;
+    font-size: 14px;
+  }
+}
+
+.page-number.active {
+  background: var(---N_, #EAF205);
+  color: var(---N__, #10040E);
+  border-color: #EAF205;
+  font-weight: 600;
+
+  &:hover {
+    background: #ffda89;
+    opacity: 1;
+  }
+}
+
+.page-nav-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

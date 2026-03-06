@@ -1,0 +1,462 @@
+/**
+ * New Face
+ */
+
+ @use '../global/vars' as *;
+ @use '../mixins/text';
+
+// Keyframe animations
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ .newface {
+   width: 100%;
+   background-color: rgba(#F8F5F5,.8);
+   @media #{media-query(sm)} {
+     padding: 20px 0;
+    //  margin: 0 0 10px;
+   }
+   @media #{media-query(md)} {
+     padding: 40px 0;
+    //  margin: 0 0 20px;
+   }
+   @media #{media-query(lg)} {
+     padding: 60px 0;
+    //  margin: 0 0 30px ;
+   }
+   .section-title {
+    text-align: center;
+   }
+
+   .newface-list {
+     display: flex;
+     flex-wrap: wrap;
+     @media #{media-query(sm)} {
+       row-gap: 50px;
+       width: calc(100% - 80px);
+       margin: 60px auto 0;
+     }
+     @media #{media-query(md)} {
+       row-gap: 60px;
+       column-gap: 30px;
+       width: 720px;
+       margin: 150px auto 0;
+     }
+     @media #{media-query(lg)} {
+       row-gap: 90px;
+       column-gap: 45px;
+       width: 1260px;
+       margin: 189px auto 0;
+     }
+
+     &.is-hidden {
+       display: none;
+     }
+   }
+
+   .newface-item {
+     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     cursor: pointer;
+     animation: slideInUp 0.8s ease-out;
+     position: relative;
+     overflow: hidden;
+
+     // Add staggered animation delay for list items
+     &:nth-child(1) { animation-delay: 0.1s; }
+     &:nth-child(2) { animation-delay: 0.2s; }
+     &:nth-child(3) { animation-delay: 0.3s; }
+     &:nth-child(4) { animation-delay: 0.4s; }
+     &:nth-child(5) { animation-delay: 0.5s; }
+     &:nth-child(6) { animation-delay: 0.6s; }
+
+     @media #{media-query(sm)} {
+       width: 100%;
+     }
+     @media #{media-query(md)} {
+       width: 345px;
+     }
+     @media #{media-query(lg)} {
+       width: 390px;
+     }
+
+     &,
+     &:link,
+     &:visited,
+     &:active,
+     &:focus {
+       color: #000;
+     }
+
+     // Subtle floating animation on idle state
+     &:not(:hover) {
+       animation: float 6s ease-in-out infinite;
+
+       &:nth-child(even) {
+         animation-delay: -3s;
+       }
+     }
+
+     &:hover {
+       transform: translateY(-15px) scale(1.08);
+       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 0 8px 25px rgba(0, 0, 0, 0.15);
+       animation: none; // Stop floating animation on hover
+
+       .newface-photo {
+         img {
+           transform: scale(1.15);
+         }
+
+         &::after {
+           content: '';
+           position: absolute;
+           top: 0;
+           left: -100%;
+           width: 100%;
+           height: 100%;
+           background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+           animation: shimmer 1.5s ease-in-out;
+         }
+       }
+       &:hover .newface-photo {
+        &.--pussycat {
+          border: 5px solid $shop-color-pussycat;
+        }
+        &.--shizuku {
+          border: 5px solid $shop-color-shizuku;
+        }
+        &.--miyabi {
+          border: 5px solid $shop-color-miyabi;
+        }
+        &.--en {
+          border: 5px solid $shop-color-en;
+        }
+        &.--siroganeze {
+          border: 5px solid $shop-color-siroganeze;
+        }
+        &.--lovestory {
+          border: 5px solid $shop-color-lovestory;
+        }
+       }
+       .newface-date {
+         transform: scale(1.1);
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+         animation: pulse 1s ease-in-out infinite;
+       }
+
+       .newface-name {
+         transform: translateY(-5px);
+         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       }
+
+       .newface-size {
+         transform: translateY(-3px);
+         opacity: 0.8;
+       }
+
+       .newface-intro {
+         transform: translateY(-2px);
+         opacity: 0.9;
+
+         &.--pussycat {
+          color: $shop-color-pussycat;
+         }
+         &.--shizuku {
+          color: $shop-color-shizuku;
+         }
+         &.--miyabi {
+          color: $shop-color-miyabi;
+         }
+         &.--en {
+          color: $shop-color-en;
+         }
+         &.--siroganeze {
+          color: $shop-color-siroganeze;
+         }
+         &.--lovestory {
+          color: $shop-color-lovestory;
+         }
+       }
+     }
+
+     .newface-date {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       width: 100%;
+       color: #FFF;
+       font-weight: 700;
+       letter-spacing: .1em;
+       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+       font-family: $font-gothic-min;
+       @media #{media-query(sm)} {
+        height: auto;
+        margin: 12px 0;
+        border-radius: 15px;
+        font-size: 14px;
+        padding: 8px;
+        flex-direction: column;
+        gap: 4px;
+
+        .newface-date-shop {
+          font-size: 16px;
+        }
+        .newface-date-date {
+          font-size: 14px;
+        }
+      }
+       @media #{media-query(md)} {
+        height: 36px;
+        margin: 18px 0;
+        padding: 0 18px;
+        border-radius: 18px;
+        font-size: 16px;
+        width: 100%;
+        flex-direction: row;
+        gap: 8px;
+      }
+       @media #{media-query(lg)} {
+        height: 42px;
+        margin: 22px 0;
+        padding: 0 24px;
+        border-radius: 21px;
+        font-size: 19px;
+        flex-direction: row;
+        gap: 10px;
+      }
+     }
+     &.is-pussycat .newface-date {
+       background-color: $shop-color-pussycat;
+     }
+     &.is-shizuku .newface-date {
+       background-color: $shop-color-shizuku;
+     }
+     &.is-miyabi .newface-date {
+       background-color: $shop-color-miyabi;
+     }
+     &.is-en .newface-date {
+       background-color: $shop-color-en;
+     }
+     &.is-siroganeze .newface-date {
+       background-color: $shop-color-siroganeze;
+     }
+     &.is-lovestory .newface-date {
+       background-color: $shop-color-lovestory;
+     }
+
+     .newface-photo {
+       width: 100%;
+      //  height: 70%;
+       overflow: hidden;
+       position: relative;
+       @media #{media-query(sm)} {
+         // height: 70%;
+         border-radius: 30px;
+        //  height: 223px;
+         margin: 16px 0 0;
+       }
+       @media #{media-query(md)} {
+        //  height: 415px;
+         border-radius: 30px;
+         margin: 20px 0 0;
+       }
+       @media #{media-query(lg)} {
+        //  height: 533px;
+         border-radius: 30px;
+         margin: 24px 0 0;
+       }
+
+       img {
+         width: 100%;
+         height: auto;
+         object-fit: cover;
+         object-position: center center;
+         transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+       }
+     }
+     &:hover .newface-photo {
+       img {
+         transform: scale(1.04);
+       }
+     }
+
+     .newface-name {
+       display: block;
+       font-weight: 700;
+       letter-spacing: .1em;
+       text-align: center;
+       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+       font-family: $font-gothic-min;
+       @media #{media-query(sm)} {
+        //  margin: 26px 0 0;
+         font-size: 14px;
+       }
+       @media #{media-query(md)} {
+        //  margin: 30px 0 0;
+         font-size: 18px;
+       }
+       @media #{media-query(lg)} {
+        //  margin: 35px 0 0;
+         font-size: 21px;
+       }
+
+       small {
+         font-size: 80%;
+         font-weight: 500;
+       }
+     }
+     &.is-pussycat .newface-name {
+       color: $shop-color-pussycat;
+     }
+     &.is-shizuku .newface-name {
+       color: $shop-color-shizuku;
+     }
+     &.is-miyabi .newface-name {
+       color: $shop-color-miyabi;
+     }
+     &.is-en .newface-name {
+       color: $shop-color-en;
+     }
+     &.is-siroganeze .newface-name {
+       color: $shop-color-siroganeze;
+     }
+     &.is-lovestory .newface-name {
+       color: $shop-color-lovestory;
+     }
+
+     .newface-size {
+      display: block;
+      text-align: center;
+      @media #{media-query(sm)} {
+        font-size: 13px;
+        margin: 8px 0;
+      }
+      @media #{media-query(md)} {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+      @media #{media-query(lg)} {
+        font-size: 18px;
+        margin: 10px 0 ;
+      }
+      &.--pussycat {
+        color: $shop-color-pussycat;
+      }
+      &.--shizuku {
+        color: $shop-color-shizuku;
+      }
+      &.--miyabi {
+        color: $shop-color-miyabi;
+      }
+      &.--en {
+        color: $shop-color-en;
+      }
+      &.--siroganeze {
+        color: $shop-color-siroganeze;
+      }
+      &.--lovestory {
+        color: $shop-color-lovestory;
+      }
+   //  display: block;
+      //  text-align: center;
+      //  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      //  font-family: $font-gothic-min;
+      //  @media #{media-query(sm)} {
+      //    font-size: 16px;
+      //    margin: 24px 0 0;
+      //  }
+      //  @media #{media-query(md)} {
+      //    font-size: 16px;
+      //    margin: 24px 0 0;
+      //  }
+      //  @media #{media-query(lg)} {
+      //    font-size: 18px;
+      //    margin: 28px 0 0;
+      //  }
+     }
+
+     .newface-intro {
+       width: 100%;
+      //  font-size: 18px;
+      //  line-height: 32px;
+       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+       @include text.multiline-ellipsis(2);
+       @media #{media-query(sm)} {
+         margin: 0 0 8px ;
+         font-size: 13px;
+         line-height: 20px;
+         height: 40px;
+       }
+       @media #{media-query(md)} {
+         margin: 0 0 14px ;
+        //  padding: 0 10px;
+         font-size: 14px;
+         line-height: 20px;
+         height: 40px;
+       }
+       @media #{media-query(lg)} {
+         margin: 0 0 15px;
+        //  padding: 0 10px;
+         font-size: 14px;
+         line-height: 20px;
+         height: 40px;
+       }
+    //  @include text.multiline-ellipsis(2);
+      //  @media #{media-query(sm)} {
+      //    margin: 18px 0 0;
+      //  }
+      //  @media #{media-query(md)} {
+      //    margin: 18px 0 0;
+      //  }
+      //  @media #{media-query(lg)} {
+      //    margin: 21px 0 0;
+      //  }
+     }
+   }
+
+   .newface-more {
+     @media #{media-query(sm)} {
+       margin: 54px auto 0;
+     }
+     @media #{media-query(md)} {
+       margin: 60px auto 0;
+     }
+     @media #{media-query(lg)} {
+       margin: 80px auto 0;
+     }
+   }
+ }

@@ -1,0 +1,41 @@
+@use 'global/vars' as *;
+@use 'global/reset';
+@use 'global/base' as *;
+@use 'global/utils';
+@use 'mixins/button';
+@use 'mixins/font' as *;
+@use 'mixins/text';
+
+@use 'groups/sidebar';
+@use 'groups/header.scss';
+@use 'groups/pushbar.scss';
+@use 'groups/footer.scss';
+@use 'groups/date-search-bar.scss';
+@use 'groups/schedule-card.scss';
+@use 'groups/menu-overlay.scss';
+@use 'groups/bottom-nav.scss';
+@use 'groups/fixed-button.scss';
+@use 'groups/pagination.scss';
+@use 'groups/home-theme.scss';
+@use 'recruit';
+
+.groups-button-more {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-btn {
+    @include YuGothic();
+    width: 200px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    color: #fff;
+    background: #021A21;
+    padding: 15px 0;
+    border-radius: 30px;
+    z-index: 1;
+  }
+}

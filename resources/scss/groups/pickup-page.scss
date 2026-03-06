@@ -1,0 +1,43 @@
+@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/button';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+// New Face Page Styles (Grid and Pagination)
+.pickup {
+  &-cards-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    padding-bottom: 10px;
+  }
+
+  &-cards-grid {
+    display: grid;
+    // Default (mobile): 2 columns even at 375px
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+
+    @media #{media-query(sm)}, #{media-query(xs)} {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    // 2 columns from ~850px
+    @media (min-width: 850px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    // Wide screens can use the larger desktop card comfortably
+    @media #{media-query(lg)}, #{media-query(xl)}, #{media-query(xxl)} {
+      grid-template-columns: repeat(2, minmax(600px, 2fr));
+      gap: 30px;
+    }
+  }
+}

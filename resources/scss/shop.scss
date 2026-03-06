@@ -1,0 +1,51 @@
+/**
+ * Shop page styles
+ */
+
+ @use 'global/vars' as *;
+ @use 'global/reset';
+ @use 'global/base';
+ @use 'global/utils';
+ @use 'shop/header';
+ @use 'shop/mv';
+//  @use 'shop/today';
+//  @use 'shop/ranking';
+ @use 'shop/home';
+ @use 'shop/footer';
+//  @use 'shop/cast';
+//  @use 'shop/banner';
+@use 'group/_pushbar.scss';
+@use 'group/_bottom-nav.scss';
+
+
+ .mock {
+  width: 1260px;
+  // justify-self: center;
+
+  @media #{media-query(sm)} {
+    width: calc(100% - 40px);
+  }
+ }
+ .mock img {
+   width: 100%;
+   height: auto;
+ }
+//  html.wf-loading body {
+//   visibility: hidden; /* 読み込み中は隠す */
+// }
+
+// html.wf-inactive body {
+//   font-family: sans-serif; /* 読み込み失敗時のフォールバック */
+// }
+
+body {
+  font-family: $font-gothic;
+}
+
+// .header-container {
+//   // position: fixed;
+//   // top: 0;
+//   // left: 0;
+//   // width: 100%;
+//   // z-index: 100;
+// }

@@ -1,0 +1,419 @@
+﻿@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/button';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+// ============================================================
+// Wrapper overrides
+// ============================================================
+.groups-content-container.groups-content-container--photodiary {
+  position: relative;
+  overflow: hidden;
+  max-width: 1260px;
+  padding: 28px 24px 36px;
+  border-radius: 34px;
+  background: #ededed;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+.groups-content-container.groups-content-container--photodiary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/assets/img/groups/bg-photo.jpg') center top / cover no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.groups-content-container.groups-content-container--photodiary > * {
+  position: relative;
+  z-index: 1;
+}
+
+.groups-content-container.groups-content-container--photodiary .groups-shops-buttons {
+  max-width: 1090px;
+  margin: 0 auto 20px;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.groups-content-container.groups-content-container--photodiary .groups-shop-button--main {
+  width: 100%;
+  max-width: 172px;
+  height: 48px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid #08242c;
+  box-shadow: none;
+  color: #fff;
+  font-family: "toppan-bunkyu-gothic-pr6n", serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.groups-content-container.groups-content-container--photodiary .groups-shops-grid {
+  gap: 8px;
+}
+
+.groups-content-container.groups-content-container--photodiary .groups-shop-button--shop {
+  height: 48px;
+  border-radius: 8px;
+  border-color: #7f8b90;
+  box-shadow: none;
+  padding: 8px 10px;
+}
+
+.groups-content-container.groups-content-container--photodiary .groups-shop-button--shop.is-active {
+  border-color: #08242c;
+  background: #08242c;
+}
+
+// ============================================================
+// Layout
+// ============================================================
+.photodiary {
+  width: 100%;
+  max-width: 1090px;
+  margin: 0 auto;
+}
+
+.photodiary-container {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.photodiary-sidebar {
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.photodiary-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ============================================================
+// Calendar
+// ============================================================
+.photodiary-calendar {
+  width: 300px;
+  height: 300px;
+  background: #fff;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  #diary-calendar {
+    width: 250px;
+    height: 287px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    box-sizing: border-box;
+
+    .fc-view-harness {
+      width: 230px !important;
+      height: 227px !important;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    .fc-toolbar.fc-header-toolbar {
+      width: 230px;
+      height: 33px;
+      margin: 0;
+      padding: 5px 0;
+      background: transparent;
+      border-bottom: none;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .fc-toolbar-title {
+      color: rgb(2, 26, 33);
+      font-size: 15px;
+      font-weight: 500;
+      font-family: 'YuGothic', 'Yu Gothic', sans-serif;
+      letter-spacing: 0;
+    }
+
+    .fc-button {
+      width: 16px;
+      height: 16px;
+      border: none;
+      background: transparent;
+      color: #2a1a08;
+      box-shadow: none;
+      padding: 0;
+      font-size: 12px;
+    }
+
+    .fc-button:hover,
+    .fc-button:focus,
+    .fc-button-primary:not(:disabled):active,
+    .fc-button-primary:not(:disabled).fc-button-active {
+      border: none;
+      background: rgba(165, 140, 27, 0.1);
+      box-shadow: none;
+      border-radius: 2px;
+    }
+
+    .fc-col-header { background: transparent; }
+    .fc-col-header-cell { border-color: #f0f0f0; padding: 0; height: 32px; }
+    .fc-col-header-cell-cushion { color: #666; font-size: 9px; font-weight: 600; padding: 2px; display: flex; align-items: center; justify-content: center; height: 32px; }
+    .fc-scrollgrid { border-color: #f0f0f0; }
+    .fc-daygrid-day { border-color: #f0f0f0; }
+
+    .fc-daygrid-day-frame {
+      width: 32.86px;
+      height: 32px;
+      min-height: unset;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .fc-daygrid-day-top {
+      justify-content: center;
+      flex-direction: row;
+    }
+
+    .fc-daygrid-day-number {
+      width: 18px;
+      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      color: #333;
+      font-size: 9px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+
+    .fc-daygrid-day:hover .fc-daygrid-day-number { background: #f8f8f8; }
+    .fc-day-other .fc-daygrid-day-number { color: #ccc; }
+
+    .fc-day-today {
+      background: transparent;
+      .fc-daygrid-day-number {
+        background: #fff8e1;
+        color: #a58c1b;
+        font-weight: 700;
+      }
+    }
+
+    .selected-date-cell .fc-daygrid-day-number,
+    .fc-day-selected .fc-daygrid-day-number {
+      background: #a58c1b;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .fc-daygrid-day.has-diary .fc-daygrid-day-number {
+      background: #ffe082;
+      color: #2a1a08;
+      font-weight: 600;
+    }
+
+    .fc-daygrid-day-events { display: none; }
+    .fc-daygrid-body { border-color: #f0f0f0; }
+  }
+}
+
+// ============================================================
+// Month list
+// ============================================================
+.photodiary-months {
+  width: 300px;
+  background: #fff;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 8px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.photodiary-months-list {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  padding: 30px;
+  width: 240px;
+  margin: 0 auto;
+  max-height: 371px;
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: #fafafa; }
+  &::-webkit-scrollbar-thumb { background: #d5d5d5; border-radius: 2px; }
+  &::-webkit-scrollbar-thumb:hover { background: #bbb; }
+}
+
+.photodiary-month-link {
+  display: block;
+  width: 96px;
+  color: rgb(2, 26, 33);
+  font-family: 'YuGothic', 'Yu Gothic', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: rgb(207, 193, 176);
+  }
+
+  &.is-active {
+    color: rgb(207, 193, 176);
+  }
+}
+
+
+
+
+.photodiary-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1440px){
+  .photodiary .photodiary-grid{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 25px;
+    border-radius: 30px;
+  }
+  .photodiary .photodiary-row{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+  }
+  .photodiary .photodiary-card{
+    display: flex;
+    width: 400px;
+    height: 603px;
+    padding: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.90);
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+  .photodiary .photodiary-card img{
+    height: 350px;
+align-self: stretch;
+aspect-ratio: 1/1;
+background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+  }
+  .photodiary .photodiary-card-content{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+align-self: stretch;
+  }
+  .photodiary .photodiary-card-info{
+    height: 51px;
+align-self: stretch;
+margin-bottom: 20px;
+  }
+  .photodiary .photodiary-card-title{
+    color: var(--b, #021A21);
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 308px;
+  }
+  .photodiary .photodiary-card-time{
+    width: 350px;
+    color: var(--b, #021A21);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .photodiary .photodiary-cast-header{
+    display: flex;
+padding: 10px 20px;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+border-bottom: 1px solid #FF048E;
+background: #FFE7F9;
+  }
+  .photodiary .photodiary-cast-name{
+    color: var(--b, #021A21);
+text-align: center;
+font-family: Inter;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+  }
+  .photodiary .photodiary-cast-stats{
+    color: var(--b, #021A21);
+font-family: YuGothic;
+font-size: 13px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: -0.52px;
+  }
+  .photodiary .photodiary-cast-avatar img{
+    width: 63px;
+height: 63px;
+border-radius: 63px;
+background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+  }
+  .photodiary .photodiary-cast-shop{
+    color: var(--b, #021A21);
+font-family: YuGothic;
+font-size: 19px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin: 0 auto;
+  }
+
+}

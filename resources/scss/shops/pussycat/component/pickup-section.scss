@@ -1,0 +1,211 @@
+// Import global variables and utilities
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+
+.home-pickup {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  width: 100%;
+  margin-top: 1.875rem;
+  background: var(---N_, rgba(42, 26, 8, 0.75));
+}
+
+.pickup-header {
+  position: relative;
+  width: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.pickup-header-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
+
+.pickup-header-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.pickup-header-shadow {
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25) inset;
+}
+
+.pickup-header-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 5rem 3.75rem;
+  z-index: 1;
+}
+@media (max-width: 850px){
+  .pickup-header-content{
+    padding: 30px 0px;
+    padding-bottom: 70px;
+  }
+}
+.pickup-title-en {
+  @include Caveat();
+  @include responsive-font(41px, 86px);
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.09rem;
+  color: $white;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.pickup-title-ja-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+}
+@media (max-width: 850px){
+  .pickup-title-ja-wrapper{
+    margin-top: 10px;
+  }
+  .pickup-description {
+    margin-top: 10px !important;
+  }
+}
+
+.pickup-lightning-icon {
+  width: 2.1875rem;
+  height: 2.1875rem;
+  flex-shrink: 0;
+}
+
+.pickup-title-ja {
+  @include YuGothic();
+  @include responsive-font(18px, 43px);
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.0875rem;
+  color: $white;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.pickup-description {
+  @include YuGothic();
+  @include responsive-font(16px, 26.4px);
+  font-weight: 700;
+  line-height: normal;
+  color: $white;
+  text-align: center;
+  white-space: nowrap;
+  margin: 25px 0 0 0;
+}
+
+.pickup-badge {
+  position: absolute;
+  left: calc(50% - 5.875rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 11.75rem;
+  height: 11.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.pickup-badge-diamond {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.pickup-badge-text {
+  @include YuGothic();
+  @include responsive-font(16px, 26.5px);
+  font-weight: 700;
+  line-height: normal;
+  color: #EAF205;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.pickup-cast-card {
+  position: relative;
+  width: 25%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.pickup-cast-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+
+  .cast-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    z-index: 1;
+  }
+
+  .cast-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-position: 50% 50%;
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .home-pickup {
+    flex-wrap: wrap;
+    margin-top: 0px;
+  }
+
+  .pickup-header {
+    width: 100%;
+  }
+
+  .pickup-badge {
+    top: 180px;
+    width: 132px;
+    height: 132px;
+    transform: translateX(18%);
+  }
+
+  .pickup-cast-card {
+    width: 50%;
+  }
+}
+

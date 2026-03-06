@@ -1,0 +1,360 @@
+@use "../../../global/vars" as *;
+@use "../../../mixins/font" as *;
+@use "../../../global/setting" as *;
+
+.reivew-card-item {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card-info {
+  display: flex;
+  gap: 14px;
+}
+
+.review-card-image-wrapper {
+  width: 240px;
+  height: 320px;
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+@media screen and (max-width: 850px) {
+  .review-card-image-wrapper {
+    width: 180px;
+    height: 240px;
+  }
+}
+
+.review-card-frame {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.review-card-image {
+  grid-column: 1;
+  grid-row: 1;
+  width: calc(100% - 2.26px);
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  z-index: 1;
+  margin-left: 1.13px;
+}
+
+.review-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 17px;
+  padding-top: 9px;
+  min-width: 0;
+  max-width: 386px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 850px) {
+  .review-card-content {
+    gap: 0px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .review-card-content {
+    padding-left: 0;
+    padding-top: 0;
+  }
+}
+
+.review-card-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 335px;
+  box-sizing: border-box;
+}
+
+.review-card-name-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.review-card-name-mobile-section {
+  display: none !important;
+}
+.review-card-rating-mobile-section {
+  display: none !important;
+}
+@media screen and (max-width: 850px) {
+  .review-card-name-mobile-section {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px;
+    align-items: center;
+
+    h3 {
+      flex-shrink: 0;
+    }
+  }
+
+  .review-card-rating-mobile-section {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px;
+    align-items: center;
+
+    .review-card-stars {
+      flex-shrink: 0;
+    }
+  }
+}
+
+.review-card-name {
+  @include M_PLUS_1();
+  font-weight: 400;
+  font-size: 26px;
+  @include responsive-font(18.5px, 29px);
+  color: #1C2D48;
+  margin: 0;
+  line-height: normal;
+}
+
+.review-card-measurements {
+  @include M_PLUS_1();
+  @include responsive-font(12.8px, 17.5px);
+  color: #1C2D48;
+  line-height: normal;
+  font-weight: 400;
+}
+
+.review-card-rating-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.review-card-stars {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.review-card-stars svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 850px) {
+  .review-card-stars svg {
+    width: 13.333px;
+    height: 12.667px;
+  }
+}
+
+.review-card-rating-number {
+  @include times-new-roman();
+  font-size: 17px;
+  color: #010307;
+  margin-left: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-card-tags {
+  @include M_PLUS_1();
+  @include responsive-font(12px, 15px);
+  color: #1C2D48;
+  font-weight: 400;
+  margin: 0;
+  line-height: normal;
+  text-align: justify;
+  // white-space: pre-wrap;
+}
+
+.review-card-comment-section {
+  width: 100%;
+  max-width: 335px;
+  box-sizing: border-box;
+}
+
+.review-card-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  min-height: 170px;
+  position: relative;
+  @media screen and (max-width: 850px) {
+    min-height: 210px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .review-card-comment {
+    padding: 0;
+  }
+}
+
+.review-card-comment-author {
+  @include Kulim_Park();
+  @include responsive-font(15.8px, 19px);
+  color: #1C2D48;
+  font-weight: 600;
+  margin: 0;
+  line-height: normal;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+.review-card-comment-text {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding: 0 10px 10px 10px;
+  border-radius: 9px;
+  min-height: 0;
+  max-height: 120px;
+  width: 100%;
+  box-sizing: border-box;
+  @media screen and (max-width: 850px) {
+    max-height: 210px;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(---N_, #FFDE32);
+    border-radius: 2.5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(---N_, #FFDE32);
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: var(---N_, #FFDE32) transparent;
+}
+
+.review-card-comment-textarea {
+  @include M_PLUS_1();
+  font-weight: 400;
+  font-size: 15px;
+  color: #1C2D48;
+  font-weight: 400;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  margin: 0;
+  padding: 5.5px 3px 0 3px;
+  line-height: 19px;
+  text-align: justify;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  min-height: 143px;
+  height: auto;
+
+  @media screen and (max-width: 850px) {
+    min-height: 210px;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@media screen and (max-width: 850px) {
+  .review-card-comment-textarea {
+    padding: 0;
+  }
+}
+.review-card-comment-line {
+  width: 5px;
+  height: 55px;
+  background: #b19d67;
+  flex-shrink: 0;
+  margin-top: 42.5px;
+  margin-left: 10px;
+  pointer-events: none;
+}
+
+.review-card-details {
+  width: 100%;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 180px;
+}
+
+@media screen and (max-width: 850px) {
+  .review-card-details {
+    padding: 0;
+  }
+}
+
+.review-card-shop-reply {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-card-shop-reply-title {
+  @include M_PLUS_1();
+  font-weight: 400;
+  font-size: 18px;
+  color: #1C2D48;
+  font-weight: 400;
+  margin: 0;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+.review-card-shop-reply-text {
+  @include M_PLUS_1();
+  font-weight: 300;
+  font-size: 16px;
+  color: #1C2D48;
+  margin: 0;
+  line-height: normal;
+  flex: 1;
+  min-height: 0;
+  white-space: pre-wrap;
+}
+@media screen and (max-width: 850px) {
+  .review-card-shop-reply-text {
+    font-size: 15px;
+  }
+}

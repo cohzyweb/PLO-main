@@ -1,0 +1,71 @@
+@use '../global/vars' as *;
+@use '../mixins/text';
+@use '../global/reset';
+@use '../global/base';
+@use '../global/utils';
+
+.law {
+  width: 100%;
+  // max-width: 1500px;
+  margin: 0 auto;
+  background-image: url('/assets/img/group/law.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  // padding: 60px 0;
+
+  // @media #{media-query(sm)} {
+  //   padding: 40px 0;
+  // }
+
+  // @media #{media-query(md)} {
+  //   padding: 50px 0;
+  // }
+
+  // @media #{media-query(lg)} {
+  //   padding: 80px 0;
+  // }
+
+  // Overlay with opacity
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.6); // 60% opacity overlay
+    z-index: 1;
+  }
+
+  .law-content {
+    position: relative;
+    z-index: 2; // Above the overlay
+    text-align: center;
+    color: #000;
+    font-family: $font-midashi-min;
+    // line-height: 1.8;
+    // max-width: 800px;
+    margin: 0 auto;
+
+    @media #{media-query(sm)} {
+      font-size: 16px;
+      padding: 40px 0;
+      line-height: 1.8;
+    }
+
+    @media #{media-query(md)} {
+      font-size: 20px;
+      padding: 60px 30px;
+      line-height: 2.3;
+    }
+
+    @media #{media-query(lg)} {
+      font-size: 24px;
+      padding: 100px 100px;
+      line-height: 2.3;
+    }
+  }
+}
+

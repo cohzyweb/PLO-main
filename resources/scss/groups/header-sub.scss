@@ -1,0 +1,527 @@
+@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/button';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+// Base header container
+.header-sub {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    background: rgb(255, 255, 255);
+    gap: 15px;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 90px;
+    padding: 1px 0;
+    flex-shrink: 0;
+
+    @media screen and (max-width: 850px) {
+        gap: 0;
+        padding: 0;
+    }
+}
+
+.left-header {
+    display: flex;
+    height: 90px;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+    justify-content: flex-end;
+    padding: 15px 0;
+
+    @media screen and (max-width: 850px) {
+        display: none;
+    }
+}
+
+.right-header {
+    display: flex;
+    height: 90px;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.right-header-menu {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 850px) {
+        display: none;
+    }
+}
+
+.header-separator {
+    width: 1px;
+    height: 50px;
+    background: #FF048E;
+    margin: 0;
+    flex-shrink: 0;
+
+    &--dark {
+        background: var(--b, #021A21);
+    }
+}
+
+.header-user-menu a {
+    display: inline-flex;
+    padding: 0 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-user-menu small {
+    color: #FF048E;
+    leading-trim: both;
+    text-edge: cap;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FF048E;
+    font-family: Elina;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    /* 126.667% */
+    letter-spacing: 0.6px;
+}
+
+.header-user-menu span {
+    color: var(--b, #021A21);
+    font-family: YuGothic;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    /* 118.75% */
+}
+
+.sub-header-logo {
+    display: flex;
+    width: 260px;
+    height: 120px;
+    padding: 0 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0 0 30px 30px;
+    background: rgb(2, 26, 33);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    img {
+        width: 220px;
+        height: 109px;
+        object-fit: contain;
+    }
+
+    @media screen and (max-width: 850px) {
+        width: 107.623px;
+        height: 60px;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        margin-left: 9.3px;
+
+        img {
+            object-fit: cover;
+            width: 107.623px;
+            height: 60px;
+            aspect-ratio: 107.62/60.00;
+        }
+    }
+}
+
+.logout-button {
+    display: flex;
+    width: 59px;
+    height: 59px;
+    padding: 7px 10px 14px 10px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    border-radius: 60px;
+    background: rgb(217, 217, 217);
+    position: relative;
+    flex-shrink: 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 3;
+
+    &:hover {
+        background-color: #C9C9C9;
+    }
+
+    @media screen and (max-width: 850px) {
+        display: none;
+    }
+}
+
+.logout-button span {
+    color: rgb(2, 26, 33);
+    text-align: center;
+    @include YuGothic();
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.logout-button svg {
+    width: 14.274px;
+    height: 14.274px;
+    flex-shrink: 0;
+    display: block;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    gap: 10px;
+    padding: 0;
+    border: none;
+    background: rgb(22, 11, 0);
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    z-index: 3;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #1a0f00;
+    }
+
+    svg {
+        width: 55px;
+        height: 23px;
+        flex-shrink: 0;
+    }
+
+    span {
+        @include Elina();
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 19px;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 850px) {
+        width: auto;
+        height: 60px;
+        padding: 0 0px;
+        gap: 5px;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        svg {
+            width: 36.75px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        span {
+            font-size: 13px;
+        }
+    }
+}
+
+// === Recruit page header (new UI from Figma) ===
+.header-sub--recruit {
+    // On recruit pages, let header be part of normal flow instead of fixed overlay
+    position: relative;
+    top: auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header-sub-recruit__inner {
+    max-width: 2560px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // Default (xxl: 2560px+)
+    padding: 10px 80px;
+    height: 100px;
+    gap: 680px;
+}
+
+.header-sub-recruit__logo {
+    display: block;
+    flex-shrink: 0;
+
+    // Default (xxl: 2560px+)
+    height: 55px;
+
+    img {
+        display: block;
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+}
+
+.header-sub-recruit__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    flex: 0.8;
+}
+
+.header-sub-recruit__link {
+    text-decoration: none;
+    color: #000;
+    font-family: 'Toppan Bunkyu Gothic', 'Noto Sans JP', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    transition: opacity 0.2s ease;
+
+    // Default (xxl: 2560px+)
+    font-size: 24px;
+
+    &:hover {
+        opacity: 0.75;
+    }
+}
+
+// ── xl: 1920px ~ 2559px ──
+@media #{media-query(xl)} {
+    .header-sub-recruit__inner {
+        padding: 10px 60px;
+        height: 90px;
+        gap: 400px;
+    }
+
+    .header-sub-recruit__logo {
+        height: 50px;
+    }
+
+    .header-sub-recruit__link {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+}
+
+// ── lg: 1440px ~ 1919px ──
+@media #{media-query(lg)} {
+    .header-sub-recruit__inner {
+        padding: 10px 40px;
+        height: 80px;
+        gap: 180px;
+    }
+
+    .header-sub-recruit__logo {
+        height: 42px;
+    }
+
+    .header-sub-recruit__link {
+        font-size: 16px;
+        letter-spacing: 0.8px;
+    }
+}
+
+// ── md: 768px ~ 1439px ──
+@media #{media-query(md)} {
+    .header-sub-recruit__inner {
+        padding: 10px 24px;
+        height: 70px;
+        gap: 40px;
+    }
+
+    .header-sub-recruit__logo {
+        height: 36px;
+    }
+
+    .header-sub-recruit__nav {
+        justify-content: flex-end;
+        gap: 20px;
+    }
+
+    .header-sub-recruit__link {
+        font-size: 14px;
+        letter-spacing: 0.6px;
+    }
+}
+
+// ── sm: 376px ~ 767px ──
+@media #{media-query(sm)} {
+    .header-sub-recruit__inner {
+        padding: 8px 16px;
+        height: 60px;
+        gap: 16px;
+    }
+
+    .header-sub-recruit__logo {
+        height: 30px;
+    }
+
+    .header-sub-recruit__nav {
+        justify-content: flex-start;
+        gap: 16px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+    }
+
+    .header-sub-recruit__link {
+        font-size: 13px;
+        letter-spacing: 0.4px;
+    }
+}
+
+// ── xs: ~375px ──
+@media #{media-query(xs)} {
+    .header-sub-recruit__inner {
+        padding: 6px 12px;
+        height: 54px;
+        gap: 12px;
+    }
+
+    .header-sub-recruit__logo {
+        height: 26px;
+    }
+
+    .header-sub-recruit__nav {
+        justify-content: flex-start;
+        gap: 12px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+    }
+
+    .header-sub-recruit__link {
+        font-size: 12px;
+        letter-spacing: 0.3px;
+    }
+}
+
+// Default state of the menu button
+.header-sub-recruit__menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    img {
+        display: block;
+        height: 100%;
+        width: auto;
+    }
+}
+
+// ── Mobile/Tablet specific override (768px) ──
+@media screen and (max-width: 768px) {
+    .header-sub-recruit__nav {
+        display: none !important;
+    }
+
+    .header-sub-recruit__menu-btn {
+        display: block;
+        height: 32px; // Match approximate mobile proportions
+    }
+}
+
+// Mobile Menu Overlay styles
+.header-sub-recruit__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.header-sub-recruit__overlay-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-sub-recruit__overlay-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 48px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+.header-sub-recruit__overlay-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-sub-recruit__overlay-link {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Toppan Bunkyu Gothic', 'Noto Sans JP', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: #fff42f;
+    }
+}

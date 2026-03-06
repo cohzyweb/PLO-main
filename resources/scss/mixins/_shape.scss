@@ -1,0 +1,94 @@
+/**
+ * Shape Mixins
+ */
+
+@use 'sass:math';
+
+/// Circle
+@mixin circle (
+  $diameter: 0,
+  $color: #000
+) {
+  width: $diameter;
+  height: $diameter;
+  background: $color;
+  border-radius: 50%;
+}
+
+/// Triangle Up
+@mixin triangle-up (
+  $width: 0,
+  $height: 0,
+  $color: #000
+) {
+  width: $width;
+  height: $height;
+  border-right: math.div($width, 2) solid transparent;
+  border-bottom: $height solid $color;
+  border-left: math.div($width, 2) solid transparent;
+}
+
+/// Triangle Right
+@mixin triangle-right (
+  $width: 0,
+  $height: 0,
+  $color: #000
+) {
+  width: $width;
+  height: $height;
+  border-top: math.div($height, 2) solid transparent;
+  border-bottom: math.div($height, 2) solid transparent;
+  border-left: $width solid $color;
+}
+
+/// Triangle Down
+@mixin triangle-down (
+  $width: 0,
+  $height: 0,
+  $color: #000
+) {
+  width: $width;
+  height: $height;
+  border-top: $height solid $color;
+  border-right: math.div($width, 2) solid transparent;
+  border-left: math.div($width, 2) solid transparent;
+}
+
+/// Triangle Left
+@mixin triangle-left (
+  $width: 0,
+  $height: 0,
+  $color: #000
+) {
+  width: $width;
+  height: $height;
+  border-top: math.div($height, 2) solid transparent;
+  border-right: $width solid $color;
+  border-bottom: math.div($height, 2) solid transparent;
+}
+
+@mixin arrow-right($color: #000) {
+  &::after {
+    width: 10px;
+    height: 8px;
+    margin: 0 0 0 6px;
+    content: "";
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 10px solid $color;
+    @content;
+  }
+}
+
+@mixin arrow-left($color: #000) {
+  &::after {
+    width: 10px;
+    height: 8px;
+    margin: 0 0 0 6px;
+    content: "";
+    border-top: 4px solid transparent;
+    border-right: 10px solid $color;
+    border-bottom: 4px solid transparent;
+    @content;
+  }
+}

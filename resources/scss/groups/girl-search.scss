@@ -1,0 +1,592 @@
+@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+// Groups Girl Search Page (Figma: 1231:9582)
+.groups-girl-search {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.groups-girl-search__panel {
+  background-color: white;
+  border-radius: 50px;
+  width: min(1680px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.groups-girl-search__form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+}
+
+// Name Search Section
+.groups-girl-search__section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.groups-girl-search__name-header {
+  background-color: white;
+  border-radius: 30px;
+}
+
+.groups-girl-search__name-label {
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #021a21;
+  line-height: normal;
+  margin: 0;
+}
+
+.groups-girl-search__name-input-group {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.groups-girl-search__input-wrapper {
+  flex: 1 0 0;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.groups-girl-search__input {
+  width: 100%;
+  border: 1px solid #021a21;
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #021a21;
+  background-color: white;
+  
+  &::placeholder {
+    color: #9a9a9a;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #ee5f8b;
+  }
+}
+
+.groups-girl-search__radio-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.groups-girl-search__radio-label {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.groups-girl-search__radio {
+  display: none;
+}
+
+.groups-girl-search__radio-indicator {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #021a21;
+  background-color: white;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  .groups-girl-search__radio:checked + & {
+    background-color: #021a21;
+    border-color: #021a21;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: white;
+    }
+  }
+}
+
+.groups-girl-search__radio-text {
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: black;
+  line-height: normal;
+}
+
+// Status Search Section
+.groups-girl-search__status-section {
+  background-color: #f5f1ed;
+  padding: 20px;
+  width: 100%;
+}
+
+.groups-girl-search__status-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.groups-girl-search__status-item {
+  flex: 1 0 0;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px;
+  height: 135px;
+  justify-content: center;
+}
+
+.groups-girl-search__status-label {
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #021a21;
+  line-height: normal;
+  margin: 0;
+}
+
+.groups-girl-search__select-wrapper {
+  position: relative;
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.groups-girl-search__select {
+  width: 100%;
+  border: 1px solid #021a21;
+  border-radius: 15px;
+  padding: 10px 30px;
+  padding-right: 50px;
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #021a21;
+  background-color: white;
+  appearance: none;
+  cursor: pointer;
+
+  &::placeholder {
+    color: #9a9a9a;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #ee5f8b;
+  }
+
+  option {
+    color: #021a21;
+  }
+}
+
+.groups-girl-search__select-arrow {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+// Feature Sections (Personality, Style, Option)
+.groups-girl-search__feature-section {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.groups-girl-search__feature-header {
+  flex-shrink: 0;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  background-color: white;
+  padding: 20px 30px;
+}
+
+.groups-girl-search__feature-label {
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #021a21;
+  line-height: normal;
+  margin: 0;
+}
+
+.groups-girl-search__feature-options {
+  flex: 1 0 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.groups-girl-search__feature-column {
+  flex: 1 0 0;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.groups-girl-search__feature-radio-label {
+  display: flex;
+  gap: 9px;
+  align-items: start;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.groups-girl-search__feature-radio {
+  display: none;
+}
+
+.groups-girl-search__feature-radio-indicator {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #021a21;
+  background-color: white;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  .groups-girl-search__feature-radio:checked + & {
+    background-color: #021a21;
+    border-color: #021a21;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: white;
+    }
+  }
+}
+
+.groups-girl-search__feature-radio-text {
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: black;
+  line-height: normal;
+  overflow-wrap: anywhere;
+}
+
+// Action Buttons
+.groups-girl-search__actions {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.groups-girl-search__btn {
+  background: linear-gradient(to right, #ee5f8b, #ff048e);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: 319px;
+  text-align: center;
+  line-height: normal;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.groups-girl-search__btn--working {
+  // Same as default
+}
+
+.groups-girl-search__btn--castlist {
+  // Same as default
+}
+
+// Back to Top Button
+.groups-girl-search__back-to-top {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.groups-girl-search__back-link {
+  background-color: #021a21;
+  color: white;
+  border-radius: 30px;
+  padding: 15px 20px;
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.8px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  width: 319px;
+  transition: opacity 0.2s ease;
+  line-height: normal;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+// Search Results Section
+.groups-girl-search__results {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+// Search Criteria Summary
+.groups-girl-search__criteria {
+  border-bottom: 1px solid #021a21;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.groups-girl-search__criteria-header {
+  background-color: white;
+  padding: 20px 63px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.groups-girl-search__criteria-title {
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: #2a1a08;
+  text-align: center;
+  margin: 0;
+  line-height: normal;
+  width: 800px;
+}
+
+.groups-girl-search__criteria-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.groups-girl-search__criteria-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 800px;
+}
+
+.groups-girl-search__criteria-item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.groups-girl-search__criteria-label {
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: black;
+  line-height: normal;
+}
+
+.groups-girl-search__criteria-value {
+  font-family: 'YuGothic', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: black;
+  line-height: normal;
+}
+
+// Search Results Grid
+.groups-girl-search__results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+
+  // 5 columns at 2560px+
+  @media screen and (min-width: 2560px) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+// Card Link Wrapper
+.groups-girl-search__card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// Responsive Design
+@media screen and (max-width: 850px) {
+  .groups-girl-search {
+    padding: 20px 0;
+    gap: 30px;
+  }
+
+  .groups-girl-search__panel {
+    gap: 30px;
+    border-radius: 30px;
+  }
+
+  .groups-girl-search__form {
+    gap: 30px;
+  }
+
+  .groups-girl-search__name-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .groups-girl-search__input-wrapper {
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  .groups-girl-search__status-grid {
+    flex-direction: column;
+  }
+
+  .groups-girl-search__status-item {
+    min-width: auto;
+    height: auto;
+    min-height: 135px;
+  }
+
+  .groups-girl-search__feature-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .groups-girl-search__feature-header {
+    width: 100%;
+  }
+
+  .groups-girl-search__feature-options {
+    flex-direction: column;
+  }
+
+  .groups-girl-search__feature-column {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .groups-girl-search__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .groups-girl-search__btn {
+    width: 100%;
+    max-width: 319px;
+  }
+
+  .groups-girl-search__back-link {
+    width: 100%;
+    max-width: 319px;
+  }
+
+  .groups-girl-search__criteria-title {
+    width: 100%;
+    font-size: clamp(24px, 5vw, 36px);
+  }
+
+  .groups-girl-search__criteria-row {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .groups-girl-search__criteria-item {
+    flex-wrap: wrap;
+  }
+
+  .groups-girl-search__criteria-label,
+  .groups-girl-search__criteria-value {
+    font-size: clamp(18px, 3vw, 24px);
+  }
+}

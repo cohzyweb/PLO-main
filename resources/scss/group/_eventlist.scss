@@ -1,0 +1,44 @@
+/**
+ * Event
+ */
+ .event-gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  width: calc(100% - 70%);
+  min-height: auto !important;
+}
+.event-gallery-item.has-img {
+  border: 0 !important;
+  pointer-events: none;
+}
+
+.event-gallery-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.event-gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.event-gallery-item:not(.has-img) .event-gallery-img {
+  pointer-events: none;
+}
+
+.event-gallery-remove {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+.event-gallery-item:not(.has-img) .event-gallery-remove {
+  display: none;
+}
+.event-gallery-item.has-img .event-gallery-remove {
+  cursor: pointer;
+  pointer-events: all;
+}
+.event-gallery-item.has-img .event-gallery-remove svg {
+  pointer-events: none;
+}

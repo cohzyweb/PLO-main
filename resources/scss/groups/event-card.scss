@@ -1,0 +1,138 @@
+@use '../global/vars' as *;
+@use '../mixins/font' as *;
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 30px 20px;
+  background-color: #ffffff;
+  border: 3px solid #ee5f8b;
+  border-radius: 20px;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(238, 95, 139, 0.2);
+  }
+
+  // Shop Name Header
+  &-header {
+    background-color: #021a21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+    border-radius: 30px;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &-shop-name {
+    font-family: 'YuGothic', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: normal;
+    letter-spacing: -0.88px;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  // Event Image
+  &-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1920 / 1080;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  &-image-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  // Event Info
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &-date {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: normal;
+    color: #9a9a9a;
+    margin: 0;
+  }
+
+  &-title {
+    font-family: 'YuGothic', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: normal;
+    letter-spacing: -0.88px;
+    color: #021a21;
+    margin: 0;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  // Responsive adjustments
+  @media screen and (max-width: 768px) {
+    padding: 20px 15px;
+    gap: 15px;
+    border-radius: 15px;
+
+    &-header {
+      border-radius: 25px;
+      padding: 4px 0;
+    }
+
+    &-shop-name {
+      font-size: 18px;
+      letter-spacing: -0.72px;
+    }
+
+    &-date {
+      font-size: 18px;
+    }
+
+    &-title {
+      font-size: 18px;
+      letter-spacing: -0.72px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 15px 12px;
+    gap: 12px;
+    border-width: 2px;
+
+    &-shop-name {
+      font-size: 16px;
+      letter-spacing: -0.64px;
+    }
+
+    &-date {
+      font-size: 16px;
+    }
+
+    &-title {
+      font-size: 16px;
+      letter-spacing: -0.64px;
+    }
+  }
+}

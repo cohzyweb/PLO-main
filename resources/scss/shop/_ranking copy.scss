@@ -1,0 +1,249 @@
+@use '../global/vars' as *;
+@use '../mixins/text';
+@use '../global/reset';
+@use '../global/base';
+@use '../global/utils';
+
+.ranking {
+  background-color: #fff;
+  // padding: 60px 0;
+  @media #{media-query(sm)} {
+    padding: 25px 0;
+  }
+  @media #{media-query(md)} {
+    padding: 45px 0;
+  }
+  @media #{media-query(lg)} {
+    padding: 55px 0;
+  }
+  &-title {
+    // max-width: 1200px;
+    margin: 0 auto;
+    // padding: 0 20px;
+
+    // h2 {
+    //   font-size: 32px;
+    //   font-weight: 700;
+    //   text-align: center;
+    //   margin-bottom: 40px;
+    // }
+    &.--shizuku {
+      color: $shop-color-shizuku;
+    }
+    &.--miyabi {
+      color: $shop-color-miyabi;
+    }
+    &.--en {
+      color: $shop-color-en;
+    }
+    &.--siroganeze {
+      color: $shop-color-siroganeze;
+    }
+    &.--lovestory {
+      color: $shop-color-lovestory;
+    }
+    &.--pussycat {
+      color: $shop-color-pussycat;
+    }
+    &-en{
+      text-align: center;
+    }
+    & h2 {
+      text-align: center;
+    }
+  }
+  &-item_one {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: none;
+    // margin-bottom: 30px;
+    // padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // width: 400px;
+    width: 60%;
+    // height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    padding: 0 0;
+    @media #{media-query(sm)} {
+      width: 100%;
+    }
+  }
+  &-items-container {
+    padding: 0;
+  }
+  &-item {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: none;
+    // margin-bottom: 30px;
+    // padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // width: 400px;
+    width: 100%;
+    // height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+
+    &-photo {
+      position: relative;
+      width: 100%;
+      // height: 160%;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-name {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    &-age {
+      font-size: 18px;
+      margin-left: 5px;
+    }
+
+    &-bwh {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    &-appeal {
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
+      // gap: 20px;
+      &-text {
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        @include text.multiline-ellipsis(3);
+      }
+      height: 80px;
+      // overflow: hidden;
+      // display: -webkit-box;
+      // -webkit-line-clamp: 2;
+      // -webkit-box-orient: vertical;
+      // text-overflow: ellipsis;
+    }
+  }
+
+  &-badge {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 25px;
+    display: block;
+  }
+}
+
+// PC styles
+@media screen and (min-width: 768px) {
+  .ranking {
+    &-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+
+      // h2 {
+      //   margin-bottom: 40px;
+      // }
+
+      // 最初のアイテムを1列表示
+      .ranking-item:first-child {
+        // width: 100%;
+        // height: 160%;
+        // height: 600px;
+        margin: 0 auto;
+        // transform: translateY(-30px);
+      }
+
+      // 2位以降のアイテムを2列表示
+      .ranking-items-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 30px;
+
+        // width: 100%;
+        // max-width: 1200px;
+        justify-items: center;
+        align-items: self-end;
+      }
+    }
+  }
+}
+
+// SP styles
+@media screen and (max-width: 767px) {
+  .ranking {
+    padding: 40px 0;
+
+    &-title {
+      // h2 {
+      //   font-size: 24px;
+      //   margin-bottom: 30px;
+      // }
+    }
+
+    &-item {
+      width: 300px;
+      // height: 500px;
+      padding: 0px;
+      margin-bottom: 10px;
+
+      &-name {
+        font-size: 20px;
+      }
+
+      &-age {
+        font-size: 16px;
+      }
+
+      &-bwh {
+        font-size: 14px;
+      }
+
+      &-appeal {
+        font-size: 14px;
+        margin-bottom: 15px;
+        height: 65px;
+      }
+
+      &-photo {
+        width: 100%;
+        height: 160%;
+        border: 1px solid #ddd;
+      }
+    }
+
+    &-badge {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+  }
+}
+

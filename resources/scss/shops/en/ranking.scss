@@ -1,0 +1,616 @@
+@use "../../global/vars" as *;
+@use "../../mixins/font" as *;
+
+.ranking-searchbar {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  padding: 21px 20px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #2a1a08;
+  border-bottom: 1px solid #2a1a08;
+}
+
+.ranking-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: 3px solid #7A5086;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  @include yu-mincho-regular();
+  @include responsive-font(19px, 19px);
+  font-weight: 600;
+  color: #6F56A6;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  span {
+    white-space: wrap;
+  }
+}
+
+.ranking-filter-btn-active {
+  background-color: #7A5086;
+  border: none;
+  color: #FFF9FE;
+}
+
+.ranking-filter-btn-mobile {
+  display: none;
+}
+
+.ranking-filter-buttons-desktop {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.ranking-no1-header {
+  display: flex;
+  background: var(---N__, #FFF9FE);
+  gap: 50px;
+  justify-content: center;
+  padding: 40px 40px;
+}
+
+.no1-person-name {
+  @include yu-mincho-regular();
+  @include responsive-font(31px, 43.5px);
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  background: linear-gradient(0deg, rgba(86, 65, 112, 0.85) 70.19%, rgba(255, 255, 255, 0.00) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.no1-person-details {
+  @include times-new-roman();
+  @include responsive-font(16px, 22px);
+  font-weight: 400;
+  background: linear-gradient(0deg, rgba(86, 65, 112, 0.85) 70.19%, rgba(255, 255, 255, 0.00) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.no1-person-services {
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+}
+
+.no1-person-services p {
+  @include yu-mincho-regular();
+  @include responsive-font(16px, 18.8px);
+  line-height: 29px;
+  color: var(---N___, #010307);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.rankig-no1-content {
+  width: 100%;
+  display: flex;
+  gap: 13px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+  background: #FFF9FE;
+}
+
+.ranking-no1-content-item {
+  display: flex;
+  flex: 1 1 calc((100% - 26px) / 3);
+  min-width: 0;
+}
+
+.ranking-no1-content-item-image {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 132.36%; // 589/445 * 100% to maintain aspect ratio
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ranking-no1-content-item-image .ranking-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 101%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.ranking-no1-content-item-image .ranking-image {
+  position: absolute;
+  top: 0.18%; // 1.04px / 589px * 100%
+  left: 0;
+  width: 100%;
+  height: 100.68%; // 593px / 589px * 100%
+  object-fit: cover;
+  z-index: 0;
+}
+
+@media screen and (max-width: 1440px) {
+  .rankig-no1-content {
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+
+  .ranking-no1-content-item {
+    flex: 1 1 calc((100% - 26px) / 3);
+    min-width: 0;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .ranking-searchbar {
+    padding: 21px 20px;
+    justify-content: center;
+    background: none;
+  }
+
+  .ranking-filter-buttons-desktop {
+    display: none;
+  }
+
+  .ranking-filter-btn-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: 3px solid #ffda89;
+    background-color: #ffda89;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 355px;
+
+    @include yu-mincho-regular();
+    font-size: 18px;
+    font-weight: 600;
+    color: #2a1a08;
+    text-align: center;
+
+    span {
+      flex: 1 0 0;
+      white-space: nowrap;
+    }
+
+    svg {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .ranking-list-no1 {
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .ranking-no1-header {
+    order: 2;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: var(---N__, rgba(255, 249, 254, 0.80));
+  }
+
+  .rankig-no1-content {
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 13px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: var(---N__, #FFF9FE);
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .ranking-no1-content-item {
+    flex: 0 0 auto;
+    width: 85%;
+    min-width: 85%;
+    max-width: 85%;
+    scroll-snap-align: start;
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .ranking-no1-content-item-image {
+    width: 100%;
+    padding-bottom: 132.36%;
+  }
+
+  .no1-person-info {
+    text-align: center;
+  }
+
+  .no1-person-services {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .ranking-no1-image {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.no1-person-info-container {
+  background: var(---N__, rgba(255, 249, 254, 0.80));
+  padding: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .no1-person-services {
+    text-align: left;
+  }
+}
+
+.ranking-list-no23 {
+  width: 100%;
+  display: flex;
+  background: var(---N__, #FFF9FE);
+  border-bottom: 2px solid #7A5086;
+}
+
+.ranking-no23-container {
+  width: 50%;
+}
+
+.ranking-no23-header {
+  padding: 20px 30px;
+  display: flex;
+  gap: 40px;
+  border-right: 2px solid #7A5086;
+  // border-bottom: 1px solid #7A5086;
+}
+
+.no23-person-name {
+  color: var(---N___, #010307);
+  text-align: center;
+  @include yu-mincho-regular();
+  font-size: 37px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: left;
+}
+
+.no23-person-details {
+  color: var(---N___, #010307);
+  @include times-new-roman();
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+}
+
+.ranking-no23-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ranking-no23-content-item {
+  display: flex;
+  flex: 1 1 calc((100% - 26px) / 3);
+  min-width: 0;
+}
+
+.ranking-no23-content-item-image {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 132.36%; // 589/445 * 100% to maintain aspect ratio
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ranking-no23-content-item-image .ranking-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.ranking-no23-content-item-image .ranking-image {
+  position: absolute;
+  top: 0.18%; // 1.04px / 589px * 100%
+  left: 0;
+  width: 100%;
+  height: 100%; // 593px / 589px * 100%
+  object-fit: contain;
+  z-index: 0;
+}
+
+.ranking-no23-services {
+  padding: 30px;
+}
+
+.ranking-no23-services p {
+  color: var(---N___, #010307);
+  @include yu-mincho-regular();
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px; /* 161.111% */
+}
+
+@media screen and (max-width: 850px) {
+  .ranking-list-no23 {
+    display: block;
+  }
+
+  .ranking-no23-container {
+    width: 100%;
+  }
+
+  .ranking-no23-header {
+    justify-content: center;
+  }
+
+  .ranking-no23-content-item {
+    padding: 15px 40px;
+  }
+
+  .ranking-no23-services {
+    padding: 15px;
+  }
+  .no23-person-name {
+    @include yu-mincho-regular();
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background: var(
+      ---h1,
+      #010307
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
+  .no23-person-details {
+    @include times-new-roman();
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: var(
+      ---h1,
+      #010307
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
+}
+
+.ranking-list-no4567 {
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (max-width: 850px) {
+  .ranking-list-no4567 {
+    display: block;
+  }
+}
+
+.ranking-no4567-container {
+  width: 25%;
+  background: var(---N__, #FFF9FE);
+}
+
+.ranking-no4567-header {
+  padding: 30px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.ranking-no4567-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ranking-no4567-content-item {
+  display: flex;
+  flex: 1 1 calc((100% - 26px) / 3);
+  min-width: 0;
+}
+
+.ranking-no4567-content-item-image {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 132.36%; // 589/445 * 100% to maintain aspect ratio
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ranking-no4567-content-item-image .ranking-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.ranking-no4567-content-item-image .ranking-image {
+  position: absolute;
+  top: 0.18%; // 1.04px / 589px * 100%
+  left: 0;
+  width: 100%;
+  height: 100%; // 593px / 589px * 100%
+  object-fit: contain;
+  z-index: 0;
+}
+
+.ranking-no4567-info {
+  padding: 20px 20px 0px 20px;
+}
+
+.ranking-no4567-hr {
+  border: 1px solid #7A5086;
+  margin: 15px 20px;
+}
+
+.no4567-person-name {
+  color: var(---N___, #010307);
+  text-align: center;
+  // font-family: "Yu Mincho";
+  @include yu-mincho-regular();
+  font-size: 37px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
+
+.no4567-person-details {
+  color: var(---N___, #010307);
+  @include times-new-roman();
+  // font-family: "Times New Roman";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+}
+
+.ranking-no4567-services p {
+  color: var(---N___, #010307);
+  // font-family: "Yu Mincho";
+  @include yu-mincho-regular();
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px; /* 161.111% */
+  padding: 0px 20px 30px 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .ranking-no4567-container {
+    width: 100%;
+    padding: 15px;
+  }
+  .ranking-no4567-content {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+  .ranking-no4567-info-container {
+    width: 50%;
+    padding: 0px 0px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: baseline;
+  }
+  .ranking-no4567-content-container {
+    display: flex;
+  }
+  .ranking-no4567-info {
+    padding: 0px;
+    text-align: left;
+  }
+  .no4567-person-name {
+    text-align: center;
+    @include yu-mincho-regular();
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    text-align: left;
+    line-height: normal;
+    background: var(
+      ---h1,
+      #010307
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .no4567-person-details {
+    @include times-new-roman();
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+    background: var(
+      ---h1,
+      #010307
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .ranking-no4567-services {
+    color: var(---N___, #fff);
+    @include yu-mincho-regular();
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 0px;
+  }
+  .ranking-no4567-services p {
+    line-height: 24px !important;
+  }
+}

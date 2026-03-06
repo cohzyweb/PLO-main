@@ -1,0 +1,254 @@
+@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/button';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+.event-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    padding: 30px 20px;
+    gap: 30px;
+  }
+}
+
+.event-detail-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  border-radius: 50px;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    gap: 20px;
+    border-radius: 30px;
+  }
+}
+
+.event-detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  align-items: center;
+  width: 100%;
+}
+
+.event-detail-title {
+  font-family: 'YuGothic', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: normal;
+  letter-spacing: -1px;
+  color: #021a21;
+  text-align: center;
+  margin: 0;
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    letter-spacing: -0.8px;
+  }
+}
+
+.event-detail-meta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.event-detail-date {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: normal;
+  color: #9a9a9a;
+  margin: 0;
+
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.event-detail-shop-badge {
+  background-color: #021a21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 23px;
+  border-radius: 30px;
+}
+
+.event-detail-shop-name {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  color: #ffffff;
+  margin: 0;
+
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+}
+
+.event-detail-image-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 1080;
+  border-radius: 30px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  @media screen and (max-width: 768px) {
+    border-radius: 20px;
+  }
+}
+
+.event-detail-image-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.event-detail-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.event-detail-text {
+  font-family: 'YuGothic', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 40px;
+  letter-spacing: -0.72px;
+  color: #021a21;
+  width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  // Style content HTML
+  p {
+    margin: 0 0 1em 0;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.event-detail-image-additional {
+  width: 100%;
+  aspect-ratio: 1180 / 2262.25;
+  border-radius: 30px;
+  overflow: hidden;
+  flex-shrink: 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+
+    @media screen and (max-width: 768px) {
+      border-radius: 20px;
+    }
+  }
+}
+
+.event-detail-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 20px;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.event-detail-nav-buttons {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.event-detail-nav-button {
+  background-color: #ffffff;
+  border: 1px solid #bebebe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  height: 40px;
+  min-width: 64px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover:not(:disabled) {
+    background-color: #f5f5f5;
+    border-color: #9a9a9a;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: normal;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &.event-detail-nav-prev {
+    background-color: #e9e1ff;
+    border-color: #7949ff;
+
+    span {
+      color: #7949ff;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: #d9c9ff;
+    }
+  }
+}
+
+.event-detail-image-additional-container {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}

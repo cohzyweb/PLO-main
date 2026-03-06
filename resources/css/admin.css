@@ -1,0 +1,272 @@
+/**
+ * Common
+ */
+.white-space-nowrap {
+  white-space: nowrap;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+/**
+ * Cast
+ */
+.cast-gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  min-height: auto !important;
+}
+
+.cast-gallery-item.has-img {
+  border: 0 !important;
+  pointer-events: none;
+}
+
+.cast-gallery-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cast-gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.cast-gallery-item:not(.has-img) .cast-gallery-img {
+  pointer-events: none;
+}
+
+.cast-gallery-remove {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.cast-gallery-item:not(.has-img) .cast-gallery-remove {
+  display: none;
+}
+
+.cast-gallery-item.has-img .cast-gallery-remove {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.cast-gallery-item.has-img .cast-gallery-remove svg {
+  pointer-events: none;
+}
+
+/**
+ * Event
+ */
+.event-gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  width: calc(100% - 70%);
+  min-height: auto !important;
+}
+
+.event-gallery-item.has-img {
+  border: 0 !important;
+  pointer-events: none;
+}
+
+.event-gallery-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.event-gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.event-gallery-item:not(.has-img) .event-gallery-img {
+  pointer-events: none;
+}
+
+.event-gallery-remove {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.event-gallery-item:not(.has-img) .event-gallery-remove {
+  display: none;
+}
+
+.event-gallery-item.has-img .event-gallery-remove {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.event-gallery-item.has-img .event-gallery-remove svg {
+  pointer-events: none;
+}
+
+/**
+ * Banner
+ */
+.banner-gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 2;
+  width: calc(100% - 10%);
+  min-height: auto !important;
+}
+
+.banner-gallery-item.has-img {
+  border: 0 !important;
+  pointer-events: none;
+}
+
+.banner-gallery-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner-gallery-item:not(.has-img) .banner-gallery-img {
+  pointer-events: none;
+}
+
+.banner-gallery-remove {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.banner-gallery-item:not(.has-img) .banner-gallery-remove {
+  display: none;
+}
+
+.banner-gallery-item.has-img .banner-gallery-remove {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.banner-gallery-item.has-img .banner-gallery-remove svg {
+  pointer-events: none;
+}
+
+/**
+ * System
+ */
+.system-gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 2;
+  width: calc(100% - 10%);
+  min-height: auto !important;
+}
+
+.system-gallery-item.has-img {
+  border: 0 !important;
+  pointer-events: none;
+}
+
+.system-gallery-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.system-gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.system-gallery-item:not(.has-img) .system-gallery-img {
+  pointer-events: none;
+}
+
+.system-gallery-remove {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.system-gallery-item:not(.has-img) .system-gallery-remove {
+  display: none;
+}
+
+.system-gallery-item.has-img .system-gallery-remove {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.system-gallery-item.has-img .system-gallery-remove svg {
+  pointer-events: none;
+}
+
+
+/* ================================
+   Responsive Styles
+================================ */
+
+/* Large tablets */
+@media (max-width: 1024px) {
+
+  .event-gallery-item {
+    width: calc(100% - 50%);
+  }
+
+  .banner-gallery-item,
+  .system-gallery-item {
+    width: calc(100% - 5%);
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+
+  .event-gallery-item {
+    width: 100%;
+  }
+
+  .banner-gallery-item {
+    aspect-ratio: 16 / 4;
+    width: 100%;
+  }
+
+  .system-gallery-item {
+    aspect-ratio: 4 / 2;
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+  .cast-gallery-item {
+    aspect-ratio: 1 / 1;
+  }
+
+  .event-gallery-item {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
+
+  .banner-gallery-item {
+    aspect-ratio: 16 / 5;
+    width: 100%;
+  }
+
+  .system-gallery-item {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+  }
+}

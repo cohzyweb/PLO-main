@@ -1,0 +1,230 @@
+/**
+ * Global Base
+ */
+
+@use '../global/vars' as *;
+
+/**
+ * ----------------------------------------------------------------------------
+ * Scroll behavior
+ * ----------------------------------------------------------------------------
+ */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * Base Font
+ * ----------------------------------------------------------------------------
+ */
+body {
+  font-family: "toppan-bunkyu-gothic-pr6n", sans-serif;
+  font-size: 16px;
+  color: $black;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * Anchor Text
+ * ----------------------------------------------------------------------------
+ */
+a {
+  text-decoration: none;
+  @media #{media-query(lg)} {
+    &[href^="tel:"] {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+}
+
+.content-wrapper {
+  // width: 1260px;
+  margin: 0 auto;
+  padding: 3%;
+  @media #{media-query(lg)} {
+    width: 94%;
+  }
+  @media #{media-query(md)} {
+    width: calc(100% - 80px);
+  }
+  @media #{media-query(sm)} {
+    width: calc(100% - 50px);
+    // padding: 10px;
+    // padding: 0px;
+    // width: 80%
+  }
+}
+
+.content-wrapper-shop {
+  // width: 1260px;
+  margin: 0 auto;
+  padding: 3% 0;
+  @media #{media-query(lg)} {
+    width: 94%;
+  }
+  @media #{media-query(md)} {
+    width: calc(100% - 80px);
+  }
+  @media #{media-query(sm)} {
+    width: calc(100% - 50px);
+    // padding: 0px;
+    // width: 80%
+  }
+}
+.title-font {
+  font-family: $font-gothic-min;
+  font-size: $title-font-size;
+  font-weight: $title-font-weight;
+  font-style: $title-font-style;
+  @media #{media-query(sm)} {
+    font-family: $font-gothic-min;
+    font-size: $title-font-size-sm;
+    font-weight: $title-font-weight-sm;
+    font-style: $title-font-style-sm;
+  }
+  @media #{media-query(md)} {
+    font-family: $font-gothic-min;
+    font-size: $title-font-size-md;
+    font-weight: $title-font-weight-md;
+    font-style: $title-font-style-md;
+  }
+  @media #{media-query(lg)} {
+    font-family: $font-gothic-min;
+    font-size: $title-font-size-lg;
+    font-weight: $title-font-weight-lg;
+    font-style: $title-font-style-lg;
+  }
+}
+.title-font-midashi {
+  font-family: $font-midashi-min;
+  font-size: $title-font-size;
+  font-weight: $title-font-weight;
+  font-style: $title-font-style;
+  @media #{media-query(sm)} {
+    font-family: $font-midashi-min;
+    font-size: $title-font-size-sm;
+    font-weight: $title-font-weight-sm;
+    font-style: $title-font-style-sm;
+  }
+  @media #{media-query(md)} {
+    font-family: $font-midashi-min;
+    font-size: $title-font-size-md;
+    font-weight: $title-font-weight-md;
+    font-style: $title-font-style-md;
+  }
+  @media #{media-query(lg)} {
+    font-family: $font-midashi-min;
+    font-size: $title-font-size-lg;
+    font-weight: $title-font-weight-lg;
+    font-style: $title-font-style-lg;
+  }
+}
+.title-font-sm-midashi {
+  font-family: $font-midashi-min;
+  font-size: 36px;
+  @media #{media-query(sm)} {
+    font-size: 20px;
+  }
+  @media #{media-query(md)} {
+    font-size: 28px;
+  }
+}
+
+.title-font-sm {
+  font-family: $font-gothic-min;
+  font-size: 36px;
+  @media #{media-query(sm)} {
+    font-size: 20px;
+  }
+  @media #{media-query(md)} {
+    font-size: 28px;
+  }
+}
+.more-button-title {
+  font-size: 26px;
+  font-family: $font-gothic-min;
+  // font-weight: 400;
+  font-style: normal;
+  @media #{media-query(sm)} {
+    font-size: 22px;
+  }
+  @media #{media-query(md)} {
+    font-size: 24px;
+  }
+}
+.content-font {
+  font-family: $content-font-family;
+  font-size: $content-font-size;
+  font-weight: $content-font-weight;
+  font-style: $content-font-style;
+  @media #{media-query(sm)} {
+    font-family: $content-font-family-sm;
+    font-size: $content-font-size-sm;
+    font-weight: $content-font-weight-sm;
+    font-style: $content-font-style-sm;
+  }
+  @media #{media-query(sm)} {
+    font-family: $content-font-family-sm;
+    font-size: $content-font-size-sm;
+    font-weight: $content-font-weight-sm;
+    font-style: $content-font-style-sm;
+  }
+  @media #{media-query(md)} {
+    font-family: $content-font-family-md;
+    font-size: $content-font-size-md;
+    font-weight: $content-font-weight-md;
+    font-style: $content-font-style-md;
+  }
+  @media #{media-query(lg)} {
+    font-family: $content-font-family-lg;
+    font-size: $content-font-size-lg;
+    font-weight: $content-font-weight-lg;
+    font-style: $content-font-style-lg;
+  }
+}
+
+.sp-only {
+  // display: block;
+  @media #{media-query(xs)} {
+    display: block;
+  }
+  @media #{media-query(sm)} {
+    display: block;
+  }
+  @media #{media-query(md)} {
+    display: block;
+  }
+  @media #{media-query(lg)} {
+    display: none !important;
+  }
+  @media #{media-query(xl)} {
+    display: none !important;
+  }
+  @media #{media-query(xxl)} {
+    display: none !important;
+  }
+}
+.pc-only {
+  // display: block;
+  @media #{media-query(xs)} {
+    display: none !important;
+  }
+  @media #{media-query(sm)} {
+    display: none !important;
+  }
+  @media #{media-query(md)} {
+    display: none !important;
+  }
+  @media #{media-query(lg)} {
+    display: block;
+  }
+  @media #{media-query(xl)} {
+    display: block;
+  }
+  @media #{media-query(xxl)} {
+    display: block;
+  }
+}

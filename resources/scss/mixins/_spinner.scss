@@ -1,0 +1,28 @@
+/**
+ * Spinner Mixins
+ */
+
+@mixin spinner {
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  width: 40px;
+  height: 40px;
+  border: solid 4px;
+  border-color: #000000 #00000010 #00000010;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: .2s;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  &:not(.is-shown) {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

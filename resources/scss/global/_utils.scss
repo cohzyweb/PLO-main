@@ -1,0 +1,29 @@
+/**
+ * Global Utility
+ */
+
+@use 'vars' as *;
+
+/**
+ * ----------------------------------------------------------------------------
+ * Show/Hide by Viewport Width
+ * ----------------------------------------------------------------------------
+ */
+@media #{media-query(sm)} {
+  .md:not(.sm),
+  .lg:not(.sm) {
+    display: none !important;
+  }
+}
+@media #{media-query(md)} {
+  .sm:not(.md),
+  .lg:not(.md) {
+    display: none !important;
+  }
+}
+@media #{media-query(lg)} {
+  .sm:not(.lg),
+  .md:not(.lg) {
+    display: none !important;
+  }
+}

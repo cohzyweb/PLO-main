@@ -1,0 +1,482 @@
+// Import global variables and utilities
+@use "../../../global/vars" as *;
+@use "../../../mixins/font" as *;
+
+// Event Section Styles
+.home-event {
+  position: relative;
+  width: 100%;
+  height: 55rem;
+  margin: 1.875rem auto 0;
+  overflow: hidden;
+}
+
+@media (max-width: 850px) {
+  .home-event {
+    margin-top: 20px;
+  }
+}
+.event-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  .event-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.event-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.event-main-banner {
+  position: absolute;
+  left: 50%;
+  top: 5.5625rem;
+  transform: translateX(-50%);
+  width: 62.5rem;
+  height: auto;
+  z-index: 3;
+}
+
+.event-main-bg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  line-height: 0;
+
+  .event-main-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    vertical-align: top;
+  }
+}
+
+.event-main-banner-slider {
+  width: 100%;
+  height: auto;
+  line-height: 0;
+
+  // .swiper-wrapper {
+  //   display: flex;
+  // }
+
+  .swiper-slide {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    background: transparent;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      vertical-align: top;
+    }
+  }
+
+  .event-main-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    vertical-align: top;
+  }
+}
+
+.event-main-content {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+  gap: 1.25rem;
+}
+
+.event-main-label {
+  @include yu-mincho-pr6n();
+  @include responsive-font(20px, 24px);
+  font-weight: 600;
+  color: $white;
+  margin: 0;
+  text-align: center;
+}
+
+.event-main-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  position: relative;
+  width: 100%;
+}
+
+.event-member-points {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  background: linear-gradient(180deg, #fff2d7 20.67%, #bd902f 100%);
+  padding: 0.9375rem 0.625rem;
+  border-radius: 0.5rem;
+
+  p {
+    @include yu-mincho-pr6n();
+    @include responsive-font(16px, 20px);
+    font-weight: 600;
+    color: #2a1a08;
+    margin: 0;
+    white-space: nowrap;
+  }
+}
+
+.event-main-title {
+  @include didot();
+  @include responsive-font(60px, 96px);
+  font-weight: 400;
+  color: $white;
+  margin: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.event-percentage {
+  p {
+    @include inter();
+    @include responsive-font(80px, 120px);
+    font-weight: 700;
+    background: linear-gradient(180deg, #fff2d7 20.67%, #bd902f 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    line-height: 1;
+  }
+}
+
+.event-gift-boxes {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  z-index: 5;
+
+  .gift-box {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+    filter: drop-shadow(0 0.25rem 0.5rem rgba(0, 0, 0, 0.3));
+  }
+}
+
+.event-sub-banners {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 4.625rem;
+  width: 100%;
+  max-width: 62.5rem;
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+}
+
+.event-sub-banners-static {
+  display: flex;
+  gap: 0.625rem;
+  justify-content: center;
+}
+
+.event-sub-banner {
+  // width: 13.4375rem;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.event-sub-banner-one {
+  width: 13.4375rem;
+  // width: 30%;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+// Sub-banners slider (visible smaller banners)
+.event-sub-banners-slider {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  // .swiper-wrapper {
+  //   display: flex;
+  //   // gap: 0.625rem;
+  //   justify-content: center;
+  //   align-items: center;
+  //   margin: 0;
+  //   padding: 0;
+  // }
+
+  .swiper-slide {
+    width: auto;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    background: transparent;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &.swiper-slide-thumb-active {
+      opacity: 1;
+    }
+  }
+
+  .event-sub-banner {
+    // width: 13.4375rem;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+// Navigation buttons
+.event-sub-banners-prev,
+.event-sub-banners-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  @media screen and (max-width: 850px) {
+    width: 35px;
+    height: 35px;
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.event-sub-banners-prev {
+  left: -60px;
+}
+
+.event-sub-banners-next {
+  right: -60px;
+}
+
+// Show navigation buttons on hover
+.event-sub-banners:hover {
+  .event-sub-banners-prev,
+  .event-sub-banners-next {
+    opacity: 1;
+  }
+}
+
+// Add navigation buttons to main banner area
+.event-main-banner {
+  position: relative;
+}
+
+.event-main-banner-prev,
+.event-main-banner-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  @media screen and (max-width: 850px) {
+    width: 40px;
+    height: 40px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.event-main-banner-prev {
+  left: -70px;
+}
+
+.event-main-banner-next {
+  right: -70px;
+}
+
+// Show navigation buttons on hover
+.event-main-banner:hover {
+  .event-main-banner-prev,
+  .event-main-banner-next {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .home-event {
+    height: auto;
+    // min-height: 37.5rem;
+  }
+
+  .event-main-banner {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+    margin-top: 2.5rem;
+  }
+
+  .event-main-bg {
+    height: auto;
+    max-height: none;
+
+    .event-main-image {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  .event-sub-banners {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: auto;
+    margin: 1.25rem 0;
+    padding: 0 1.25rem;
+
+    // .event-sub-banners-slider {
+      // .swiper-wrapper {
+      //   justify-content: center;
+      // }
+    // }
+
+    .event-sub-banners-static {
+      justify-content: center;
+    }
+    .swiper-slide {
+      width: 200px !important;
+      // height: 63.158px;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .event-sub-banners-slider {
+    .swiper-slide {
+      width: 160px !important;
+      // height: 63.158px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .event-sub-banners-slider {
+    .swiper-slide {
+      width: 114px !important;
+      // height: 63.158px;
+    }
+  }
+}

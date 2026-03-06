@@ -1,0 +1,80 @@
+/**
+ * Home common styles
+ */
+
+@use '../global/vars' as *;
+
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .section-title-en {
+    @media #{media-query(sm)} {
+      height: 40px;
+    }
+    @media #{media-query(md)} {
+      height: 56px;
+    }
+    @media #{media-query(lg)} {
+      height: 80px;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .section-title-ja {
+    letter-spacing: .1em;
+    @media #{media-query(sm)} {
+      margin: 21px 0 0;
+      font-size: 23px;
+    }
+    @media #{media-query(md)} {
+      margin: 22px 0 0;
+      font-size: 25px;
+    }
+    @media #{media-query(lg)} {
+      margin: 32px 0 0;
+      font-size: 36px;
+    }
+  }
+}
+
+.more-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #FFF;
+  font-weight: 700;
+  transition: .2s;
+  @media #{media-query(sm)} {
+    width: 250px;
+    height: 62px;
+    border-radius: 31px;
+    font-size: 22px;
+  }
+  @media #{media-query(md)} {
+    width: 320px;
+    height: 74px;
+    border-radius: 37px;
+    font-size: 24px;
+  }
+  @media #{media-query(lg)} {
+    width: 400px;
+    height: 90px;
+    border-radius: 45px;
+    font-size: 26px;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &:hover {
+    opacity: .8;
+  }
+}

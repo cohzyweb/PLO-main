@@ -1,0 +1,32 @@
+// Import global variables and utilities
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+
+.section-title{
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title h2,
+.section-title-text{
+  @include Caveat();
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  margin: 0;
+  @include responsive-font(43px, 155px);
+}
+
+// Variant for smaller font size (e.g., NEW GIRL)
+.section-title.section-title-small h2,
+.section-title.section-title-small .section-title-text {
+  @include responsive-font(50px, 154px);
+}
+

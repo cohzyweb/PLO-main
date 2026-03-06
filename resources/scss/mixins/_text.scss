@@ -1,0 +1,42 @@
+///
+/// Text Mixins
+///
+
+/**
+ * Anchor text color
+ *
+ * HTML:
+ * <a></a>
+ *
+ * SCSS:
+ * @include text.anchor($color: #000);
+ * @include text.anchor($color: #000, $hover: #000);
+ */
+@mixin anchor($color: #000, $hover: null) {
+  &,
+  &:link,
+  &:visited,
+  &:active,
+  &:focus {
+    color: $color;
+  }
+  @if $hover != null {
+    &:hover {
+      color: $hover;
+    }
+  }
+}
+
+/// Align last justify
+@mixin align-last-justify {
+  text-align-last: justify;
+  text-justify: inter-ideograph; // IE
+}
+
+/// Multi line ellipsis
+@mixin multiline-ellipsis($line) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}

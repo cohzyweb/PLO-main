@@ -1,0 +1,107 @@
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+
+.news-section{
+    background: rgba(255, 249, 254, 0.70);
+}
+.news-card{
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    padding: 50px 30px;
+    border-bottom: 1px solid #48593F;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    &:visited {
+        color: inherit;
+    }
+}
+@media (max-width: 850px) {
+    .news-card{
+        padding: 20px 20px 30px 20px;
+        gap: 20px;
+    }
+}
+.news-card-image{
+    width: 50%;
+    height: auto;
+    max-width: 500px;
+}
+@media (max-width: 850px) {
+    .news-card-image{
+        width: 45%;
+    }
+}
+.news-card-image img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.news-card-content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+}
+@media screen and (max-width: 850px) {
+    .news-card-content{
+        width: 55%;
+        gap: 5px;
+    }
+}
+
+.news-title{
+    @include yu-mincho-regular();
+    @include responsive-font(22.8px, 26px);
+    font-weight: 600;
+    color: #0B0B07;
+}
+
+@media screen and (max-width: 850px) {
+    .news-title{
+        line-height: 35px;
+    }
+}
+.news-date{
+    @include yu-mincho-regular();
+    @include responsive-font(16.8px, 21.3px);
+    font-weight: 600;
+    color: #0B0B07;
+}
+@media screen and (max-width: 850px) {
+    .news-date{
+        line-height: 24px;
+    }
+}
+
+.news-content{
+    @include yu-mincho-regular();
+    @include responsive-font(16px, 16px);
+    font-weight: 600;
+    color: #0B0B07;
+    line-height: 31px;
+    white-space: pre-line;
+}
+
+@media screen and (max-width: 850px) {
+    .news-content{
+        line-height: 27px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        @include responsive-line-clamp(5, 14, 450px, 850px);
+        -webkit-box-orient: vertical;
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,190 @@
+// Import global variables and utilities
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+
+// .castlist-top-card {
+//   display: flex;
+//   flex-direction: column;
+//   border-radius: 0.5rem;
+//   overflow: hidden;
+//   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+// }
+
+// .castlist-top-card-image {
+//   position: relative;
+//   width: 100%;
+//   aspect-ratio: 3 / 4;
+//   overflow: hidden;
+  
+//   .card-bg {
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     top: 0;
+//     left: 0;
+//     z-index: 1;
+//   }
+  
+//   .card-frame {
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     top: 0;
+//     left: 0;
+//     z-index: 2;
+//   }
+// }
+
+.castlist-top-card-content {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  bottom: 0;
+  padding: 1.25rem 0.625rem;
+  border-radius: 0 0 7px 7px;
+  @media #{media-query(sm)} {
+    padding: 0.4375rem 0.725rem;
+  }
+  @media #{media-query(xs)} {
+    padding: 0.4375rem 0.725rem;
+  }
+}
+
+// .castlist-top-card-badge {
+//   display: flex;
+//   align-items: center;
+//   background: $white;
+//   border: 2px solid;
+//   border-radius: 1.875rem;
+//   overflow: hidden;
+//   width: fit-content;
+//   flex-shrink: 0;
+// }
+
+// .badge-red-bg {
+//   padding: 0.3125rem 0.625rem;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border-radius: 1.875rem 0 0 1.875rem;
+  
+//   .badge-shift {
+//     @include yu-mincho-regular();
+//     @include responsive-font(11px, 18.5px);
+//     font-weight: 600;
+//     letter-spacing: 0.05rem;
+//     text-align: center;
+//     white-space: nowrap;
+//   }
+// }
+
+// .badge-content {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background: $white;
+  
+//   .badge-time {
+//     @include times-new-roman();
+//     @include responsive-font(14px, 20.5px);
+//     font-weight: 700;
+//     // font-family: 'Times New Roman', Times, serif;
+//     letter-spacing: 0.07875rem;
+//     text-align: center;
+//     white-space: nowrap;
+//     // padding: 0 0.625rem;
+//     // padding: 0 0.125rem;
+//     padding: 0 1.27rem;
+//     @media #{media-query(sm)} {
+//       padding: 0 0.08rem;
+//     }
+//     @media #{media-query(md)} {
+//       padding: 0 0.86rem;
+//     }
+//   }
+// }
+
+.castlist-top-card-info {
+  // padding: 0.9375rem;
+  padding: 1.25rem;
+  @media #{media-query(xs)} {
+    padding: 0.31rem 0;
+  }
+  @media #{media-query(sm)} {
+    padding: 0.31rem 0;
+  }
+  @media #{media-query(md)} {
+    padding: 0.31rem 0;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+// .castlist-top-card-status {
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 0.3125rem;
+//   width: fit-content;
+  
+//   .status-text {
+//     text-align: center;
+//     @include Hiragino_Mincho_Pro_NW6(); 
+//     @include responsive-font(16px, 24px);
+//     font-weight: 600;
+//   }
+// }
+
+// .castlist-top-card-name {
+//   @include Hiragino_Mincho_Pro_W6();
+//   @include responsive-font(16px, 16px);
+//   font-weight: 600;
+//   margin: 0;
+//   line-height: 1.4;
+// }
+
+// .castlist-top-card-measurements {
+//   // @include yu-mincho-pr6n();
+//   font-family: 'Times New Roman', Times, serif;
+//   @include responsive-font(15px, 16px);
+//   font-weight: 400;
+//   margin: 0;
+//   line-height: 1.4;
+// }
+
+// .castlist-top-card-message {
+//   @include yu-mincho-regular();
+//   @include responsive-font(17px, 20.6px);
+//   background-clip: text;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   font-weight: 600;
+//   margin: 0;
+// }
+
+// // Castlist card variant - uses larger font sizes
+// .schedule-card.castlist-card,
+// .castlist-card {
+//   .castlist-top-card-name,
+//   .castlist-card-name {
+//     @include responsive-font(14px, 16px);
+//   }
+  
+//   .castlist-top-card-measurements,
+//   .castlist-card-measurements {
+//     @include responsive-font(14px, 16px);
+//   }
+  
+//   .castlist-top-card-message,
+//   .castlist-card-message {
+//     @include responsive-font(14px, 16px);
+//     font-size: 1.1875rem;
+//   }
+  
+//   .castlist-top-card-status .status-text,
+//   .castlist-card-status .status-text {
+//     @include responsive-font(16px, 21px);
+//   }
+// }

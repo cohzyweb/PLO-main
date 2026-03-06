@@ -1,0 +1,249 @@
+///
+/// Hover Animation Mixins
+///
+
+/// Circle Spread
+@mixin circle-spread (
+  $width: 0,
+  $height: 0,
+  $color: #fff,
+) {
+  @media (hover: hover) {
+    * {
+      position: relative;
+      z-index: 1;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: $width;
+      height: $width;
+      margin: auto;
+      content: "";
+      background: $color;
+      border-radius: 50%;
+      transition: .25s;
+      transform: scale(1.41421356);
+    }
+    &:not(:hover)::before {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+}
+
+/// Slide
+@mixin slide (
+  $color: rgba(#fff, .1),
+  $position: relative
+) {
+  @media (hover: hover) {
+    position: $position;
+    overflow: hidden;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 0;
+      height: 100%;
+      content: "";
+      background: $color;
+      transition: width .25s ease;
+    }
+    &:hover::before,
+    &:focus::before {
+      width: 100%;
+    }
+
+    * {
+      position: relative;
+    }
+  }
+}
+
+/// Slide by after
+@mixin slide-after (
+  $color: rgba(#fff, .1),
+  $position: relative
+) {
+  @media (hover: hover) {
+    position: $position;
+    overflow: hidden;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 0;
+      height: 100%;
+      content: "";
+      background: $color;
+      transition: width .25s ease;
+    }
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+    }
+
+    * {
+      position: relative;
+    }
+  }
+}
+
+/// Slide run
+@mixin slide-run (
+  $color: rgba(#fff, .1),
+  $overflow: null
+) {
+  @media (hover: hover) {
+    @if ($overflow != null) {
+      overflow: $overflow;
+    }
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      pointer-events: none;
+      content: "";
+      background: $color;
+      transition: transform cubic-bezier(.19, 1, .22, 1) .8s;
+      transform: scale(0, 1);
+      transform-origin: right center;
+    }
+    &:hover::before {
+      transform: scale(1, 1);
+      transform-origin: left center;
+    }
+
+    * {
+      position: relative;
+    }
+  }
+}
+
+/// Slide run after
+@mixin slide-run-after (
+  $color: rgba(#fff, .1),
+  $overflow: null
+) {
+  @media (hover: hover) {
+    @if ($overflow != null) {
+      overflow: $overflow;
+    }
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      pointer-events: none;
+      content: "";
+      background: $color;
+      transition: transform cubic-bezier(.19, 1, .22, 1) .8s;
+      transform: scale(0, 1);
+      transform-origin: right center;
+    }
+    &:hover::after {
+      transform: scale(1, 1);
+      transform-origin: left center;
+    }
+
+    * {
+      position: relative;
+    }
+  }
+}
+
+///
+@mixin border-run (
+  $bottom: 0,
+  $height: 1px,
+  $overflowX: 0,
+  $color: #000
+) {
+  @media (hover: hover) {
+    &::after {
+      position: absolute;
+      right: -($overflowX);
+      bottom: $bottom;
+      left: -($overflowX);
+      display: block;
+      height: $height;
+      overflow: hidden;
+      content: "";
+      border-bottom-color: $color;
+      border-bottom-style: solid;
+      border-bottom-width: $height;
+      transition: transform cubic-bezier(.19, 1, .22, 1) .8s;
+      transform: scale(0, 1);
+      transform-origin: right center;
+    }
+    &:hover::after {
+      transform: scale(1, 1);
+      transform-origin: left center;
+    }
+  }
+}
+
+/// Border Spread
+@mixin border-spread (
+  $top: null,
+  $bottom: null,
+  $height: 1px,
+  $width: null,
+  $overflowX: null,
+  $color: #000
+) {
+  @media (hover: hover) {
+    &::after {
+      position: absolute;
+      display: block;
+      height: $height;
+      overflow: hidden;
+      pointer-events: none;
+      content: "";
+      border-bottom-color: $color;
+      border-bottom-style: solid;
+      border-bottom-width: $height;
+      transition: .25s;
+
+      @if ($top != null) {
+        top: $top;
+      }
+      @else if ($bottom != null) {
+        bottom: $bottom;
+      }
+
+      @if ($width != null) {
+        right: 50%;
+        width: $width;
+        transform: translateX(50%) scale(0, 1);
+      }
+      @else if ($overflowX != null) {
+        right: -($overflowX);
+        left: -($overflowX);
+        transform: scale(0, 1);
+      }
+
+    }
+    &:hover::after {
+      @if ($width != null) {
+        transform: translateX(50%) scale(1, 1);
+      }
+      @else if ($overflowX != null) {
+        transform: scale(1, 1);
+      }
+    }
+  }
+}

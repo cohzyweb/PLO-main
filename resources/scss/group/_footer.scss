@@ -1,0 +1,426 @@
+@use '../global/vars' as *;
+@use '../mixins/text';
+@use '../global/reset';
+@use '../global/base';
+@use '../global/utils';
+
+.footer {
+  // max-width: 1500px;
+  margin: 0 auto;
+  background-color: #000;
+  padding: 40px 0;
+  color: #fff;
+  // font-family: $font-gothic-min;
+
+  &__nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    // max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @media #{media-query(sm)} {
+      // flex-direction: column;
+      // align-items: center;
+      // gap: 30px;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__nav {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+
+    @media #{media-query(sm)} {
+      width: 100%;
+      gap: 10px;
+      // width: 100%;
+      // gap: 20px;
+      flex-direction: row;
+      text-align: left;
+      margin-bottom: 20px;
+
+    }
+
+    @media #{media-query(md)} {
+      gap: 20px;
+    }
+
+    @media #{media-query(lg)} {
+      gap: 30px;
+    }
+
+    &-item {
+      &:not(:last-child) {
+        border-right: 1px solid #fff;
+      }
+      @media #{media-query(sm)} {
+        // border-right: none !important;
+      }
+      @media #{media-query(md)} {
+        &:not(:last-child) {
+          padding-right: 20px;
+        }
+      }
+      @media #{media-query(lg)} {
+        &:not(:last-child) {
+          padding-right: 30px;
+        }
+      }
+      a {
+        color: #fff;
+        text-decoration: none;
+        // font-size: 18px;
+        // font-weight: bold;
+
+        &:hover {
+          opacity: 0.8;
+        }
+        @media #{media-query(sm)} {
+          font-size: 12px;
+          margin: 0 10px;
+
+        }
+        @media #{media-query(md)} {
+          font-size: 14px;
+        }
+        @media #{media-query(lg)} {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &__nav_logo {
+    width: 25%;
+    text-align: right;
+
+    @media #{media-query(sm)} {
+      width: 200px;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    // font-size: 16px;
+    // font-weight: bold;
+    color: #fff;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    @media #{media-query(sm)} {
+      font-size: 13px;
+    }
+    @media #{media-query(md)} {
+      font-size: 14px;
+    }
+    @media #{media-query(lg)} {
+      font-size: 14px;
+    }
+  }
+
+  @media #{media-query(sm)} {
+    padding-bottom: 80px;
+  }
+}
+
+// Keyframe animations for search-girl
+@keyframes searchGirlFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+  }
+}
+
+@keyframes searchGirlPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(220, 83, 215, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(220, 83, 215, 0.8), 0 0 60px rgba(220, 83, 215, 0.4);
+  }
+}
+
+@keyframes searchGirlShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes searchGirlBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-12px) scale(1.1);
+  }
+  60% {
+    transform: translateY(-6px) scale(1.05);
+  }
+}
+
+@keyframes searchGirlGlow {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 10px rgba(220, 83, 215, 0.5));
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 25px rgba(220, 83, 215, 0.8));
+  }
+}
+
+// Keyframe animations for scroll-top
+@keyframes scrollTopFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes scrollTopPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  }
+}
+
+@keyframes scrollTopShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+// Fixed search-girl element
+.search-girl {
+  position: fixed;
+  bottom: 0;
+  // left: 0;
+  right: 0;
+  z-index: 9998;
+  background: linear-gradient(135deg, #DC53D7, #FF5AA2, #DC53D7);
+  background-size: 200% 200%;
+  animation: searchGirlShimmer 3s ease-in-out infinite;
+  padding: 15px 20px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: searchGirlFloat 3s ease-in-out infinite, searchGirlPulse 2s ease-in-out infinite;
+  @media #{media-query(sm)} {
+    display: none;
+    font-size: 14px;
+    width: 185px;
+    border-top-left-radius: 24px;
+  }
+  @media #{media-query(md)} {
+    width: 210px;
+    font-size: 20px;
+    border-top-left-radius: 24px;
+  }
+  @media #{media-query(lg)} {
+    width: 215px;
+    border-top-left-radius: 24px;
+    font-size: 28px;
+    right: 0px;
+  }
+  &:hover {
+    animation: searchGirlBounce 0.8s ease-in-out, searchGirlGlow 1.5s ease-in-out infinite;
+    transform: scale(1.05);
+    box-shadow: 0 -8px 30px rgba(220, 83, 215, 0.4);
+
+    .search-girl-content {
+      transform: scale(1.1);
+
+      img {
+        animation: searchGirlGlow 1s ease-in-out infinite;
+        transform: rotate(360deg) scale(1.2);
+      }
+
+      .search-girl-content-text h2 {
+        animation: searchGirlShimmer 1s ease-in-out;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+
+  .search-girl-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+
+    img {
+      width: 30px;
+      height: 30px;
+      filter: brightness(0) invert(1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: searchGirlFloat 2s ease-in-out infinite;
+
+      @media #{media-query(sm)} {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    .search-girl-content-text {
+      h2 {
+        color: white;
+        font-family: $font-gothic-min;
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        letter-spacing: 1px;
+        @media #{media-query(sm)} {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+// Scroll-top button
+.scroll-top {
+  position: fixed;
+  bottom: 80px; // Position above search-girl
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  animation: scrollTopFloat 2s ease-in-out infinite;
+
+  @media #{media-query(sm)} {
+    bottom: 70px;
+    right: 15px;
+  }
+  @media #{media-query(lg)} {
+    right: 15px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #000, #333, #000);
+    background-size: 200% 200%;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: scrollTopPulse 2s ease-in-out infinite;
+
+    @media #{media-query(sm)} {
+      width: 50px;
+      height: 50px;
+    }
+
+    &:hover {
+      animation: scrollTopShimmer 1s ease-in-out, scrollTopFloat 0.6s ease-in-out infinite;
+      transform: scale(1.15) translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(135deg, #DC53D7, #FF5AA2, #DC53D7);
+      background-size: 200% 200%;
+
+      .scroll-top-arrow {
+        transform: translateY(-2px) scale(1.2);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    .scroll-top-arrow {
+      font-family: sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: block;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+      @media #{media-query(sm)} {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+/*
+// Law section styles (existing)
+.law {
+  background-image: url('../img/law.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding: 60px 0;
+  margin-top: 40px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .law-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+
+    @media #{media-query(sm)} {
+      padding: 30px 20px;
+      margin: 0 20px;
+    }
+
+    p {
+      margin: 0 0 15px 0;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 500;
+
+      @media #{media-query(sm)} {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+  */

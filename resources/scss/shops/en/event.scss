@@ -1,0 +1,20 @@
+@use '../../global/vars' as *;
+@use '../../mixins/font' as *;
+@use './component/pagination' as *;
+.event-section {
+    margin: 0px auto;
+    // background: rgba(255, 249, 254, 0.80);
+}
+
+@media screen and (max-width: 850px) {
+    .event-section {
+        padding: 0px 20px 20px 20px;
+        // background: rgba(255, 249, 254, 0.80);
+        background: #fff;
+
+    }
+}
+.event-pagination {
+    margin-top: 20px;
+    text-align: center;
+}

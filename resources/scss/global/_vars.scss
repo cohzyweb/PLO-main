@@ -1,0 +1,159 @@
+/**
+ * Global Variables
+ */
+
+@use 'sass:map';
+
+html {
+  font-size: 16px;
+}
+/**
+ * ----------------------------------------------------------------------------
+ * Color
+ * ----------------------------------------------------------------------------
+ */
+$black: #000;
+$white: #fff;
+
+// $shop-color-pussycat: #F933A7;
+// $shop-color-shizuku: #000;
+// $shop-color-miyabi: #0B7AAB;
+// $shop-color-en: #FFA700;
+// $shop-color-shiroganeze: #00D140;
+// $shop-color-lovestory: #FE3939;
+// $shop-color-all: #fff;
+// $shop-color-headquarter: #8B4513;
+
+// $shop-color-pussycat: #DC53D7;
+// $shop-color-shizuku: #4068fb;
+// $shop-color-miyabi: #FF8C71;
+// $shop-color-en: #FFC557;
+// $shop-color-shiroganeze: #009162;
+// $shop-color-lovestory: #FF5AA2;
+// $shop-color-all: #fff;
+// $shop-color-headquarter: #8B4513;
+
+$shop-color-pussycat: #fb50cd;
+$shop-color-shizuku: #613ffe;
+$shop-color-miyabi: #9941fb;
+$shop-color-en: #d93bfc;
+$shop-color-siroganeze: #13c4d4;
+$shop-color-lovestory: #fa1862;
+$shop-color-all: #fff;
+$shop-color-headquarter: #8B4513;
+
+
+$border-color: #cba86b;
+
+@font-face {
+  font-family: 'toppan-bunkyu-gothic-pr6n';
+  src: url('/assets/fonts/ToppanBunkyuGothicPr6N.ttc') format('truetype');
+  // font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'toppan-bunkyu-mincho-pr6n';
+  src: url('/assets/fonts/ToppanBunkyuMinchoPr6N-Regular.otf') format('opentype');
+  // font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'toppan-bunkyu-midashi-go-std';
+  src: url('/assets/fonts/ToppanBunkyuMidashiGothicStdN-ExtraBold.otf') format('opentype');
+  // font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'toppan-bunkyu-midashi-min-st';
+  src: url('/assets/fonts/ToppanBunkyuMidashiMinchoStdN-ExtraBold.otf') format('opentype');
+  // font-weight: normal;
+  font-style: normal;
+}
+
+$font-gothic: "toppan-bunkyu-gothic-pr6n", serif;
+$font-mincho: "toppan-bunkyu-mincho-pr6n", serif;
+$font-gothic-min: "toppan-bunkyu-midashi-go-std", sans-serif;
+$font-midashi-min: "toppan-bunkyu-midashi-min-st", sans-serif;
+
+$title-font-size: 36px;
+$title-font-size-sm: 40px;
+$title-font-size-md: 55px;
+$title-font-size-lg: 95px;
+
+$title-font-family: "toppan-bunkyu-midashi-min-st", sans-serif;
+$title-font-family-sm: "toppan-bunkyu-midashi-min-st", sans-serif;
+$title-font-family-md: "toppan-bunkyu-midashi-min-st", sans-serif;
+$title-font-family-lg: "toppan-bunkyu-midashi-min-st", sans-serif;
+
+$content-font-family: "toppan-bunkyu-gothic-pr6n", serif;
+$content-font-family-sm: "toppan-bunkyu-gothic-pr6n", serif;
+$content-font-family-md: "toppan-bunkyu-gothic-pr6n", serif;
+$content-font-family-lg: "toppan-bunkyu-gothic-pr6n", serif;
+
+
+$title-font-weight: 900;
+$title-font-weight-sm: 400;
+$title-font-weight-md: 900;
+$title-font-weight-lg: 900;
+
+$content-font-weight: 400;
+$content-font-weight-sm: 400;
+$content-font-weight-md: 400;
+$content-font-weight-lg: 400;
+
+$title-font-style: normal;
+$title-font-style-sm: normal;
+$title-font-style-md: normal;
+$title-font-style-lg: normal;
+
+$content-font-style: normal;
+$content-font-style-sm: normal;
+$content-font-style-md: normal;
+$content-font-style-lg: normal;
+
+$content-font-size: 18px;
+$content-font-size-sm: 12px;
+$content-font-size-md: 18px;
+$content-font-size-lg: 24px;
+
+$normal-font-size: 1.4rem;
+$normal-font-size-sm: 1rem;
+$normal-font-size-md: 1.2rem;
+$normal-font-size-lg: 1.6rem;
+
+$normal-font-weight: 400;
+$normal-font-weight-sm: 400;
+$normal-font-weight-md: 400;
+$normal-font-weight-lg: 400;
+
+$normal-font-style: normal;
+$normal-font-style-sm: normal;
+$normal-font-style-md: normal;
+$normal-font-style-lg: normal;
+/**
+ * ----------------------------------------------------------------------------
+ * Media Query
+ * ----------------------------------------------------------------------------
+ */
+$media-query: (
+  xs: '(max-width: 375px)',
+  sm: '(min-width: 376px) and (max-width: 767px)',
+  md: '(min-width: 768px) and (max-width: 1439px)',
+  lg: '(min-width: 1440px) and (max-width: 1919px)',
+  xl: '(min-width: 1920px) and (max-width: 2559px)',
+  xxl: '(min-width: 2560px)'
+);
+@function media-query($width) {
+  @return map.get($media-query, $width);
+}
+@function responsive-size($min, $max, $min-vw, $max-vw) {
+  @return clamp(
+    #{$min},
+    calc(
+      #{$min} + (#{$max} - #{$min}) * ((100vw - #{$min-vw}) /
+            (#{$max-vw} - #{$min-vw}))
+    ),
+    #{$max}
+  );
+}
+

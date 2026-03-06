@@ -1,0 +1,267 @@
+@use '../global/vars' as *;
+@use '../mixins/text';
+@use '../global/reset';
+@use '../global/base';
+@use '../global/utils';
+
+.news_diary {
+  background-color: rgba(#fff, .9);
+  .news-diary {
+    display: flex;
+    gap: 20px;
+    padding: 40px 0;
+    // max-width: 1260px;
+    margin: 0 auto;
+
+    @media #{media-query(sm)} {
+      flex-direction: column;
+      padding: 30px 0;
+    }
+
+    .news, .diary-top {
+      flex: 1;
+      border-radius: 30px;
+      border: 3px solid #ccc;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3), 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+      // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      // &.--shizuku {
+      //   border-color: $shop-color-shizuku;
+      // }
+      // &.--miyabi {
+      //   border-color: $shop-color-miyabi;
+      // }
+      // &.--en {
+      //   border-color: $shop-color-en;
+      // }
+      // &.--siroganeze {
+      //   border-color: $shop-color-siroganeze;
+      // }
+      // &.--lovestory {
+      //   border-color: $shop-color-lovestory;
+      // }
+      // &.--pussycat {
+      //   border-color: $shop-color-pussycat;
+      // }
+
+
+
+      .news-body {
+        padding: 0 20px 20px;
+        @media #{media-query(sm)} {
+          padding: 0 10px 40px;
+        }
+        &-items {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+
+          @media (max-width: 767px) {
+            gap: 15px;
+            padding: 0 10px 15px;
+          }
+        }
+
+        &-item {
+          @media #{media-query(sm)} {
+            height: 100%;
+            margin-bottom: 20px;
+          }
+          &-image {
+            width: 100%;
+            height: 70%;
+            // aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 10px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          &-published {
+            font-size: 1rem;
+            color: #000;
+            margin-bottom: 8px;
+            border-bottom: 1px dotted #000;
+            @media #{media-query(sm)} {
+              border-bottom: none;
+            }
+          }
+
+          &-contents {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #333;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 3em;
+            @media #{media-query(sm)} {
+              -webkit-line-clamp: 3;
+              height: 4em;
+            }
+          }
+        }
+      }
+    }
+
+    .news-header, .diary-top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // background-color: #000;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      // border-radius: 25px 25px 0 0;
+      height: 4rem;
+      background-color: rgba(#DFDCED, .9);
+      color: #000;
+      // &.--shizuku {
+      //   background-color: $shop-color-shizuku;
+      // }
+      // &.--miyabi {
+      //   background-color: $shop-color-miyabi;
+      // }
+      // &.--en {
+      //   background-color: $shop-color-en;
+      // }
+      // &.--siroganeze {
+      //   background-color: $shop-color-siroganeze;
+      // }
+      // &.--lovestory {
+      //   background-color: $shop-color-lovestory;
+      // }
+      // &.--pussycat {
+      //   background-color: $shop-color-pussycat;
+      // }
+
+      @media #{media-query(lg)} {
+        padding: 50px 20px;
+      }
+
+      &-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        h2 {
+          // color: #fff;
+          // font-size: $title-font-size-md;
+          font-weight: $title-font-weight-md;
+          margin: 0;
+
+          @media #{media-query(sm)} {
+            font-size: 25px;
+          }
+          @media #{media-query(lg)} {
+            font-size: 55px;
+          }
+          @media #{media-query(md)} {
+            font-size: 40px;
+          }
+        }
+        @media #{media-query(sm)} {
+          gap: 10px;
+          img {
+            width: 25px;
+          }
+        }
+        @media #{media-query(lg)} {
+          img {
+            width: 55px;
+          }
+        }
+        @media #{media-query(md)} {
+          img {
+            width: 40px;
+          }
+        }
+      }
+
+      &-button {
+        &-link {
+          color: #000;
+          text-decoration: none;
+          // font-size: 14px;
+          padding: 5px 15px;
+          border: 1px solid #fff;
+          border-radius: 25px;
+          transition: all 0.3s ease;
+          background-color: #fff;
+          &:hover {
+            background-color: #000;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+
+
+    .diary-top-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 0 20px;
+
+      @media (max-width: 767px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+      }
+    }
+
+    .diary-top-item {
+      &-image {
+        width: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        position: relative;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .diary-top-item-title {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          font-size: 1.2rem;
+          font-weight: bold;
+          padding: 5px 10px;
+          background: rgba(0, 0, 0, 0.7);
+          color: #fff;
+          margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      &-name {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 5px;
+        text-align: center;
+      }
+
+      &-date {
+        font-size: 1rem;
+        color: #999;
+        text-align: center;
+      }
+    }
+  }
+}

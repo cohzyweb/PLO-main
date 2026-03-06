@@ -1,0 +1,317 @@
+// Import global variables and utilities
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+
+.news-section{
+  width: 50%;
+  &:nth-child(2){
+    padding-left: 0.625rem;
+  }
+}
+@media (max-width: 850px) {
+  .news-section{
+    margin-top: 15px;
+    &:nth-child(2){
+      padding-left: 0;
+      margin-top: 15px;
+    }
+  }
+}
+
+.news-title{
+  display: flex;
+  height: 3.75rem;
+  @media #{media-query(sm)} {
+    height: 2.5rem;
+  }
+  @media #{media-query(md)} {
+    height: 2.5rem;
+  }
+  padding: 0.75rem 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.news-title h1{
+  @include Kulim_Park();
+  @include responsive-font(18px, 36px);
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  text-transform: uppercase;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.news-slider-wrapper,
+.diary-slider-wrapper{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  // padding: 0 0.625rem;
+}
+
+.news-slider-prev,
+.news-slider-next,
+.diary-slider-prev,
+.diary-slider-next{
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: $white;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+
+  &:hover{
+    opacity: 0.7;
+    background: var(---N__, #2A1A08);
+  }
+
+  &:active{
+    transform: scale(0.95);
+  }
+
+  &:disabled{
+    opacity: 0.3;
+    cursor: not-allowed;
+    &:hover{
+      background: none;
+    }
+  }
+
+  svg{
+    width: 0.75rem;
+    height: 1.5625rem;
+  }
+}
+
+.news-content,
+.diary-content{
+  display: flex;
+  gap: 0.9375rem;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding: 0.625rem 0.3125rem;
+  flex: 1;
+}
+
+.news-content-card,
+.diary-content-card{
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover{
+    transform: translateY(-0.3125rem);
+  }
+}
+
+.news-content-card{
+  width: 10.3125rem;
+  min-width: 10.3125rem;
+}
+
+.diary-content-card{
+  width: 8.125rem;
+  min-width: 8.125rem;
+}
+
+.news-content-card-image,
+.diary-content-card-image{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.diary-content-card-image-text {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+  width: 100%;
+  display: flex;
+  span {
+    @include inter();
+    @include responsive-font(12px, 14px);
+    font-weight: 400;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.69);
+    mix-blend-mode: multiply;
+    padding: 0.375rem 0.75rem;
+    display: inline-block;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+  }
+}
+
+.news-content-card-date,
+.diary-content-card-date{
+  margin-top: 0.625rem;
+
+  h2{
+    @include inter();
+    @include responsive-font(14px, 19px);
+    color: #0F0002;
+    font-weight: 700;
+    margin: 0;
+  }
+}
+
+.news-content-card-content{
+  margin-top: 0.3125rem;
+
+  p{
+    @include inter();
+    @include responsive-font(13px, 19px);
+    color: #0F0002;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.4;
+  }
+}
+.diary-content-card-content{
+  margin-top: 0.3125rem;
+
+  p{
+    @include inter();
+    @include responsive-font(12px, 14px);
+    color: #0F0002;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .news-section{
+    width: 100%;
+  }
+
+  // Hide arrow buttons
+  .news-slider-prev,
+  .news-slider-next,
+  .diary-slider-prev,
+  .diary-slider-next {
+    display: none !important;
+  }
+
+  // Enable scrollbar for news and diary content
+  .news-content,
+  .diary-content {
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    // -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.625rem;
+
+    // CSS Variables for scrollbar styling
+    // --scrollbar-color-thumb: red;
+    // --scrollbar-color-track: blue;
+    // --scrollbar-width: thin;
+    // --scrollbar-width-legacy: 0.625rem; // 10px
+    // --scrollbar-width-legacy: 1.5rem; // 10px
+    &::-webkit-scrollbar {
+      // width: 10px;
+      height: 1.31rem;
+      // padding: 0.3125rem 0 0.3125rem 0.625rem;
+      // margin: 0.3125rem 0 0.3125rem 0.625rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1.25rem;
+      background: #fff;
+      border: 4px solid #b7b7b7;
+      // border-top: 6px solid rgba(235, 235, 235, 0.69);
+      // border-bottom: 6px solid rgba(235, 235, 235, 0.69);
+      border-left: 0;
+      border-right: 0;
+      // height: 0.68rem;
+
+
+    }
+    &::-webkit-scrollbar-track {
+      // background: rgba(235, 235, 235, 0.69);
+      background: #b7b7b7;
+      // padding-top: 0.3rem;
+    }
+    // Modern browsers with `scrollbar-*` support (Chrome 121+, Firefox 64+)
+    // @supports (scrollbar-width: auto) {
+    //   scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+    //   scrollbar-width: var(--scrollbar-width);
+    // }
+    // @supports selector(::-webkit-scrollbar) {
+    //   .scroller::-webkit-scrollbar-thumb {
+    //       background: var(--scrollbar-color-thumb);
+    //   }
+    //   .scroller::-webkit-scrollbar-track {
+    //       background: var(--scrollbar-color-track);
+    //   }
+    //   .scroller::-webkit-scrollbar {
+    //       max-width: var(--scrollbar-width-legacy);
+    //       max-height: var(--scrollbar-width-legacy);
+    //   }
+    // }
+    // Legacy browsers with `::-webkit-scrollbar-*` support (Chrome 2+, Safari)
+    // Apply webkit scrollbar styles for all webkit browsers
+    // &::-webkit-scrollbar {
+    //   height: var(--scrollbar-width-legacy) !important;
+    //   width: 0 !important;
+    //   display: block !important;
+    //   -webkit-appearance: none !important;
+    //   appearance: none !important;
+    // }
+
+    // &::-webkit-scrollbar-track {
+    //   background: var(--scrollbar-color-track) !important;
+    //   border-radius: 0.3125rem !important; // 5px - half of height for fully rounded
+    //   -webkit-border-radius: 0.3125rem !important;
+    //   -moz-border-radius: 0.3125rem !important;
+    // }
+
+    // &::-webkit-scrollbar-thumb {
+    //   background: var(--scrollbar-color-thumb) !important;
+    //   border-radius: 0.3125rem !important; // 5px - half of height for fully rounded
+    //   -webkit-border-radius: 0.3125rem !important;
+    //   -moz-border-radius: 0.3125rem !important;
+    //   border: none !important;
+    //   min-height: var(--scrollbar-width-legacy) !important;
+    // }
+
+    // &::-webkit-scrollbar-thumb:hover {
+    //   background: var(--scrollbar-color-thumb) !important;
+    // }
+
+    // &::-webkit-scrollbar-thumb:active {
+    //   background: var(--scrollbar-color-thumb) !important;
+    // }
+  }
+
+  // Add padding to slider wrapper when arrows are hidden
+}
+

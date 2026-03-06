@@ -1,0 +1,249 @@
+@use '../global/vars' as *;
+@use '../mixins/text';
+@use '../global/reset';
+@use '../global/base';
+@use '../global/utils';
+
+.news-detail {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  @media #{media-query(sm)} {
+    padding: 30px 15px;
+  }
+
+  &-header {
+    text-align: center;
+    margin-bottom: 30px;
+
+    @media #{media-query(sm)} {
+      margin-bottom: 25px;
+    }
+
+    &-title {
+      font-size: $title-font-size-lg;
+      font-weight: $title-font-weight-lg;
+      color: #000;
+      margin: 0;
+
+      @media #{media-query(sm)} {
+        font-size: $title-font-size-sm;
+        font-weight: $title-font-weight-sm;
+      }
+    }
+  }
+
+  &-published-at {
+    text-align: center;
+    margin-bottom: 20px;
+
+    @media #{media-query(sm)} {
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #666;
+      margin: 0;
+      padding: 8px 16px;
+      background-color: #f5f5f5;
+      border-radius: 20px;
+      display: inline-block;
+
+      @media #{media-query(sm)} {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+      }
+    }
+  }
+
+  &-title {
+    text-align: center;
+    margin-bottom: 30px;
+
+    @media #{media-query(sm)} {
+      margin-bottom: 25px;
+    }
+
+    &-ja {
+      font-size: $normal-font-size-lg;
+      font-weight: $normal-font-weight-lg;
+      color: #000;
+      line-height: 1.4;
+      margin: 0;
+
+      @media #{media-query(sm)} {
+        font-size: $normal-font-size-sm;
+        font-weight: $normal-font-weight-sm;
+      }
+    }
+  }
+
+  &-image {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    @media #{media-query(sm)} {
+      margin-bottom: 25px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+
+  &-contents {
+    line-height: 1.8;
+    color: #333;
+
+    @media #{media-query(sm)} {
+      line-height: 1.6;
+    }
+
+    p {
+      font-size: $content-font-family-lg;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+
+      @media #{media-query(sm)} {
+        font-size: $content-font-size-sm;
+        margin-bottom: 1.2rem;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // 見出しのスタイル
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
+      margin: 2rem 0 1rem;
+      color: #000;
+
+      @media #{media-query(sm)} {
+        margin: 1.5rem 0 0.8rem;
+      }
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      @media #{media-query(sm)} {
+        font-size: 1.5rem;
+      }
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      @media #{media-query(sm)} {
+        font-size: 1.3rem;
+      }
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      @media #{media-query(sm)} {
+        font-size: 1.2rem;
+      }
+    }
+
+    // リストのスタイル
+    ul, ol {
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+
+      @media #{media-query(sm)} {
+        margin: 1.2rem 0;
+        padding-left: 1.5rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+
+        @media #{media-query(sm)} {
+          font-size: 0.95rem;
+        }
+      }
+    }
+
+    // リンクのスタイル
+    a {
+      color: #007bff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #0056b3;
+      }
+    }
+
+    // 強調テキスト
+    strong, b {
+      font-weight: bold;
+      color: #000;
+    }
+
+    em, i {
+      font-style: italic;
+    }
+
+    // 引用
+    blockquote {
+      margin: 1.5rem 0;
+      padding: 1rem 1.5rem;
+      background-color: #f8f9fa;
+      border-left: 4px solid #007bff;
+      border-radius: 4px;
+
+      @media #{media-query(sm)} {
+        margin: 1.2rem 0;
+        padding: 0.8rem 1.2rem;
+      }
+
+      p {
+        margin: 0;
+        font-style: italic;
+        color: #666;
+      }
+    }
+
+    // コードブロック
+    pre {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+
+      @media #{media-query(sm)} {
+        margin: 1.2rem 0;
+        padding: 0.8rem;
+      }
+
+      code {
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+      }
+    }
+
+    code {
+      background-color: #f8f9fa;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+    }
+  }
+}

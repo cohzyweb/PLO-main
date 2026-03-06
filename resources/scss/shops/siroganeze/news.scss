@@ -1,0 +1,13 @@
+@use '../../global/vars' as *;
+@use '../../mixins/font' as *;
+@use './component/pagination' as *;
+@media screen and (max-width: 850px) {
+    .news-section{
+        background: var(---N_, rgba(42, 26, 8, 0.75));
+        padding-bottom: 20px;
+    }
+}
+.news-pagination {
+    margin-top: 20px;
+    text-align: center;
+}

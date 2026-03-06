@@ -1,0 +1,33 @@
+.cast-video-item {
+    height: 250px;
+    @media (min-width: 1920px) {
+        height: 320px;
+    }
+    @media (min-width: 2560px) {
+        height: 480px;
+    }
+}
+
+@keyframes pop-bounce {
+  0%   { transform: scale(1); }
+  20%  { transform: scale(1.08); }
+  40%  { transform: scale(0.96); }
+  60%  { transform: scale(1.10); }
+  80%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+.video-thumb-empty:hover {
+  animation: pop-bounce 1.5s cubic-bezier(.4,2,.6,1) infinite;
+}
+
+.video-thumb-uploaded button {
+  background: transparent;
+  transition: background 0.5s, opacity 0.5s, transform 0.5s;
+  opacity: 1;
+}
+.video-thumb-uploaded button:hover {
+  background: rgba(156, 163, 175, 0.5); // Tailwind's bg-gray-400/50
+  opacity: 0.7;
+  animation: pop-bounce 1.5s cubic-bezier(.4,2,.6,1) infinite;
+}

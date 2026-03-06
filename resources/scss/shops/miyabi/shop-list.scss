@@ -1,0 +1,169 @@
+@use "../../global/vars" as *;
+@use "../../mixins/font" as *;
+
+.shop-list-section {
+  display: grid;
+  padding: 30px;
+  row-gap: 30px;
+  column-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  background: rgba(89, 2, 2, 0.80);
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    row-gap: 20px;
+  }
+}
+
+.shop-list-card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  border-radius: 20px;
+  background: var(---N___, #fff);
+  overflow: hidden;
+}
+
+.shop-list-card-image {
+  width: 100%;
+  height: 160px;
+  aspect-ratio: 413/160;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+.shop-list-card-content {
+  flex: 1 0 0;
+  align-self: stretch;
+  padding: 10px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.shop-list-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shop-list-details {
+  overflow: hidden;
+  @include Open_Sans();
+  color: var(---N__, #2a1a08);
+  text-overflow: ellipsis;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 31px;
+}
+
+.shop-list-contact {
+  border: 2px solid #9668b6;
+  border-radius: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px 20px;
+  margin-top: 48px;
+}
+
+.shop-list-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.shop-list-contact-label {
+  @include inter();
+  font-size: 17px;
+  font-weight: 400;
+  color: #9668b6;
+  margin: 0;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.shop-list-contact-label-tel {
+  width: 68px;
+  letter-spacing: 16.15px;
+}
+
+.shop-list-contact-row:first-child .shop-list-contact-separator {
+  height: 44px;
+}
+
+.shop-list-contact-separator {
+  width: 1px;
+  height: 20px;
+  background: #9668b6;
+  flex-shrink: 0;
+}
+
+.shop-list-contact-content {
+  @include inter();
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+  flex: 1;
+  line-height: 22px;
+
+  p {
+    margin: 0;
+    line-height: 22px;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .shop-list-contact-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+
+  .shop-list-contact-label {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+    @include inter();
+    line-height: normal;
+  }
+
+  .shop-list-contact-label-tel {
+    width: 100%;
+    letter-spacing: normal;
+  }
+
+  .shop-list-contact-separator {
+    width: 100%;
+    height: 1px;
+    border-color: #9668b6;
+    margin: 8px 0;
+  }
+
+  .shop-list-contact-row:first-child .shop-list-contact-separator {
+    height: 1px;
+  }
+
+  .shop-list-contact-content {
+    @include inter();
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,11 @@
+@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/button';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+.schedule-content{
+    padding: 50px 0px 20px 0px;
+}

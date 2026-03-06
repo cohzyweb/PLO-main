@@ -1,0 +1,243 @@
+// スケジュール全体
+.work-container {
+    .date-action {
+        background: #f5f5f5;
+        display: flex;
+        justify-content: space-between;
+  }
+  .prev-week-btn, .next-week-btn {
+    background: #eee;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    min-width: 70px;
+    cursor: pointer;
+    &.next-week-btn {
+      color: #222;
+      margin-left: 8px;
+    }
+    &.prev-week-btn {
+      color: #222;
+      margin-right: 8px;
+      // &.disabled {
+      //   cursor: not-allowed;
+      //   opacity: 0.5;
+      // }
+    }
+  }
+  .week-btn-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    color: #bbb;
+  }
+}
+.work-date {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.work-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .table-cols {
+    display: flex;
+    width: 100%;
+
+    .date-col {
+      background: #fff;
+      color: #222;
+      padding: 12px 0;
+      border-radius: 4px 4px 0 0;
+      margin-right: 4px;
+      border-bottom: 2px solid #eee;
+      flex: 1;
+      text-align: center;
+      font-weight: normal;
+      position: relative;
+
+      // 土曜日のタブ
+      &.saturday {
+        border-top: 4px solid #1976d2;
+      }
+
+      // 日曜日のタブ
+      &.sunday {
+        border-top: 4px solid #e91e63;
+      }
+
+      &.active {
+        background: #e91e63;
+        color: #fff;
+        font-weight: bold;
+        position: relative;
+        .active-indicator {
+          position: absolute;
+          left: 50%;
+          bottom: -8px;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-top: 8px solid #e91e63;
+        }
+      }
+    }
+
+    .date-col.cast-col {
+        flex: 2
+    }
+  }
+}
+
+.work-content {
+  background: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 8px 0;
+}
+
+.work-row {
+    display: flex;
+    .work-cell {
+      background: #fff;
+      color: #222;
+      padding: 12px 0;
+      border-radius: 4px 4px 0 0;
+      margin-right: 4px;
+      border-bottom: 2px solid #eee;
+      flex: 1;
+      text-align: center;
+      font-weight: normal;
+      position: relative;
+
+      // 土曜日のタブ
+      &.saturday {
+        border-top: 4px solid #1976d2;
+      }
+
+      // 日曜日のタブ
+      &.sunday {
+        border-top: 4px solid #e91e63;
+      }
+
+      &.active {
+        background: #e91e63;
+        color: #fff;
+        font-weight: bold;
+        position: relative;
+        .active-indicator {
+          position: absolute;
+          left: 50%;
+          bottom: -8px;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-top: 8px solid #e91e63;
+        }
+      }
+    }
+
+    .work-cell:first-child {
+        flex: 2;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 64px;
+          height: 64px;
+          object-fit: cover;
+          border-radius: 50%;
+          margin-right: 16px;
+        }
+    }
+}
+
+.reservation-count {
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+.work-attendance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 2px;
+  gap: 4px;
+
+  .attendance-time {
+  }
+
+  .attendance-close {
+    // visibility: hidden;
+    background: none;
+    border: none;
+    color: #9ca3af; /* gray-400 */
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .attendance-close:hover {
+    color: #374151; /* gray-700 */
+  }
+
+  &:hover {
+    .attendance-close {
+      visibility: visible;
+    }
+  }
+}
+
+#attendanceTimeSave {
+  background-color: #2563eb; // Tailwind bg-blue-600
+  color: #fff;
+  &:hover {
+    background-color: #1d4ed8; // Tailwind bg-blue-700
+  }
+}
+
+#attendanceTimeModal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5); // overlay
+
+  &.hidden {
+    display: none;
+  }
+}
+
+
+
+#attendanceTimeClose {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #9ca3af; /* gray-400 */
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+#attendanceTimeClose:hover {
+  color: #374151; /* gray-700 */
+}
+
+.attendance-time-error {
+  color: #dc2626; // Tailwind red-600
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  min-height: 1.2em;
+}

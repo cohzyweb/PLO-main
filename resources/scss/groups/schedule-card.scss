@@ -1,0 +1,309 @@
+@use '../global/vars' as *;
+@use '../mixins/font' as *;
+
+// Schedule Cards Grid Container
+.schedule-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 20px;
+  width: 100%;
+  
+  @media screen and (max-width: 850px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  // 5 columns at 2560px+ (instead of 6)
+  @media screen and (min-width: 2560px) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+}
+
+.schedule-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  color: #021a21;
+  font-family: 'YuGothic', sans-serif;
+  font-size: 18px;
+}
+
+.schedule-card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.5vw, 12px);
+  align-items: flex-start;
+  width: 100%;
+}
+
+.schedule-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.5vw, 12px);
+  width: 100%;
+}
+
+// Image Section
+.schedule-card-image {
+  aspect-ratio: 285 / 380.618896484375;
+  position: relative;
+  width: 100%;
+  border-radius: clamp(7px, 2vw, 10px);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(5px, 2vw, 15px);
+}
+
+.schedule-card-image-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: clamp(10px, 2vw, 15px);
+  overflow: hidden;
+}
+
+.schedule-card-image-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: clamp(10px, 2vw, 15px);
+}
+
+.schedule-card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #e1e1e1;
+  border-radius: clamp(10px, 2vw, 15px);
+}
+
+.schedule-card-image-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  border-radius: clamp(10px, 2vw, 15px);
+}
+
+// Overlay Buttons
+.schedule-card-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.schedule-card-overlay-buttons {
+  display: inline-grid;
+  grid-template-columns: max-content;
+  grid-template-rows: max-content;
+  position: relative;
+  line-height: 0;
+  width: clamp(152.5px, 40vw, 271.853px);
+  height: clamp(21px, 5vw, 34.91px);
+}
+
+.schedule-card-status-button {
+  position: absolute;
+  background: #021a21;
+  border: 2px solid #021a21;
+  border-radius: 30px 0 0 30px;
+  height: clamp(20px, 5vw, 34.748px);
+  width: clamp(57px, 15vw, 107.942px);
+  left: 0;
+  top: clamp(0.19px, 0.05vw, 0.25px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 2;
+}
+
+.schedule-card-status-text {
+  font-family: 'YuGothic', sans-serif;
+  font-weight: 700;
+  font-size: clamp(10px, 2.5vw, 15px);
+  line-height: normal;
+  color: white;
+  text-align: center;
+  letter-spacing: clamp(0px, 0.15vw, 0.8px);
+  white-space: pre-wrap;
+  width: clamp(42.904px, 11vw, 67px);
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.schedule-card-time-button {
+  position: absolute;
+  background: white;
+  border: 2px solid #021a21;
+  border-radius: 30px;
+  height: clamp(21px, 5vw, 34.91px);
+  width: clamp(152.309px, 40vw, 271.853px);
+  left: clamp(0.19px, 0.05vw, 0.15px);
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 1;
+}
+
+.schedule-card-time-text {
+  font-family: 'YuGothic', sans-serif;
+  font-weight: 700;
+  font-size: clamp(12px, 3vw, 18px);
+  margin-left: clamp(63.19px, 16vw, 90px);
+  // margin-top: clamp(5.78px, 1.5vw, 0px);
+  line-height: normal;
+  color: #021a21;
+  text-align: center;
+  letter-spacing: clamp(0px, 0.25vw, 1.26px);
+  white-space: pre-wrap;
+  width: clamp(80.906px, 20vw, auto);
+  height: clamp(9.777px, 2.5vw, auto);
+}
+
+// Information Section
+.schedule-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5px, 1vw, 5px);
+  align-items: flex-start;
+  width: 100%;
+}
+
+// Shop Name Bar
+.schedule-card-shop-bar {
+  background: #021a21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 13px;
+  width: 100%;
+}
+
+.schedule-card-shop-text {
+  font-family: 'YuGothic', sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 3.5vw, 18px);
+  line-height: normal;
+  color: white;
+  letter-spacing: clamp(-0.68px, -0.15vw, -0.72px);
+}
+
+// Details (Name and Measurements)
+.schedule-card-details {
+  display: inline-grid;
+  grid-template-columns: max-content;
+  grid-template-rows: max-content;
+  line-height: normal;
+  color: #021a21;
+}
+
+.schedule-card-name {
+  font-family: 'YuGothic', sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 4.5vw, 24px);
+  line-height: normal;
+  color: #021a21;
+  letter-spacing: clamp(-0.72px, -0.2vw, -0.96px);
+  margin: 0;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.schedule-card-measurements {
+  font-family: 'YuGothic', sans-serif;
+  font-weight: 500;
+  font-size: clamp(14px, 3.5vw, 15px);
+  line-height: normal;
+  color: #021a21;
+  letter-spacing: clamp(-0.56px, -0.15vw, -0.6px);
+  margin: clamp(26px, 6vw, 36px) 0 0 0;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+// Message Box
+.schedule-card-message {
+  background: white;
+  display: flex;
+  gap: 5px;
+  height: clamp(70px, 18vw, 90px);
+  // Stretch children so the scroll container gets an actual height
+  align-items: stretch;
+  overflow: hidden;
+  padding: clamp(6px, 1.5vw, 10px) clamp(5px, 1vw, 5px) clamp(6px, 1.5vw, 6px) clamp(5px, 1.5vw, 10px);
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  min-width: 0;
+}
+
+.schedule-card-message-content {
+  flex: 1 0 0;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  padding-right: 4px;
+  
+  // Scrollbar styling (keeps UI clean while still scrollable)
+  scrollbar-width: thin;
+  scrollbar-color: #D9D9D9 transparent;
+  
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+    border-radius: 2px;
+  }
+}
+
+.schedule-card-message-text {
+  font-family: 'YuGothic', sans-serif;
+  font-weight: 500;
+  font-size: clamp(14px, 3.5vw, 15px);
+  line-height: 19px;
+  color: #021a21;
+  letter-spacing: clamp(-0.56px, -0.15vw, -0.6px);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  width: 100%;
+  margin: 0;
+}
+
+.schedule-card-message-scrollbar {
+  background: #d9d9d9;
+  height: 28px;
+  width: 4px;
+  flex-shrink: 0;
+}
+
+// Mobile-specific adjustments (if needed beyond clamp values)
+// Most responsive values are now handled via clamp() above

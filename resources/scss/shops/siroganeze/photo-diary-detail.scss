@@ -1,0 +1,548 @@
+@use "../../global/vars" as *;
+@use "../../mixins/font" as *;
+@use "../../global/setting" as *;
+
+.photo-diary-details-section {
+  display: flex;
+  padding-top: 30px;
+  flex-direction: column;
+  align-items: center;
+  // background: rgba(42, 26, 8, 0.6);
+  background: rgba(255, 249, 254, 0.80);
+}
+
+@media screen and (max-width: 850px) {
+  .photo-diary-details-section {
+    display: flex;
+    padding: 10px 15px 0px 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+  }
+}
+
+.photo-diary-details-section-title {
+  display: flex;
+  max-width: 1080px;
+  padding: 10px 30px;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+  background: var(---N_, #394022);
+  color: var(---N__, #FFF);
+  @include YuGothic();
+  font-size: 26px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 850px) {
+  .photo-diary-details-section-title {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.photo-diary-details-section-content {
+  display: flex;
+  width: 100%;
+  max-width: 1080px;
+  gap: 20px;
+  padding-top: 20px;
+  justify-content: space-between;
+
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
+    padding: 0px;
+    gap: 10px;
+  }
+}
+
+.photo-diary-details-section-content-left {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  gap: 15px;
+  //   padding: 0px 15px;
+
+  @media screen and (max-width: 850px) {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.photo-diary-details-section-content-left-calendar {
+  width: 100%;
+  background: white;
+  padding: 25px 0;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  // FullCalendar custom styles
+  .fc {
+    font-family: sans-serif;
+
+    .fc-header-toolbar {
+      margin-bottom: 1.5rem;
+
+      .fc-button {
+        background-color: transparent;
+        border: none;
+        color: #2a1a08;
+        font-size: 16px;
+        padding: 0.5rem;
+
+        &:hover {
+          background-color: rgba(255, 218, 137, 0.3);
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      .fc-toolbar-title {
+        font-size: 18px;
+        font-weight: 400;
+        color: #2a1a08;
+      }
+    }
+
+    .fc-daygrid-day {
+      &.fc-day-other {
+        .fc-daygrid-day-number {
+          color: #bd902f;
+        }
+      }
+    }
+
+    .fc-daygrid-day-number {
+      color: #2a1a08;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .fc-daygrid-day.fc-day-today {
+      background-color: transparent;
+    }
+
+    .fc-event {
+      background-color: #ffda89;
+      border: none;
+      border-radius: 0;
+    }
+
+    .fc-col-header-cell {
+      .fc-col-header-cell-cushion {
+        color: #2a1a08;
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.profile-button {
+  display: flex;
+  width: 100%;
+  padding: 5px 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 25px;
+  border: 1px solid #394022;
+}
+@media screen and (max-width: 850px) {
+  .profile-button {
+    display: flex;
+    padding: 0px 12px;
+    align-items: center;
+    gap: 10px;
+    height: 27px;
+    max-width: 135px;
+  }
+}
+.profile-button p {
+  color: var(---N___, #fff);
+  @include yu-mincho-regular();
+  font-size: 22px;
+  font-weight: 400;
+  @media screen and (max-width: 850px) {
+    font-size: 15px !important;
+    // font-family: "Times New Roman", Times, serif !important;
+    // font-weight: 500;
+    color: var(---N___, #fff) !important;
+  }
+}
+
+.today-work-content {
+  display: flex;
+  border-radius: 30px;
+  border: 2px solid var(---N_, #b90000);
+  background: var(---N___, #fff);
+  @media screen and (max-width: 850px) {
+    height: 27px;
+  }
+}
+
+.today-work-content-title {
+  border-radius: 30px 0 0 30px;
+  background: var(---N_, #b90000);
+  width: 119.053px;
+  height: 44.676px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  @media screen and (max-width: 850px) {
+    width: 60px;
+    height: 23px !important;
+  }
+}
+
+.today-work-content-title p {
+  color: var(---N_, #ffda89);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.95px;
+  @include yu-mincho-regular();
+
+  @media screen and (max-width: 850px) {
+    font-size: 11px;
+    color: #ffe500 !important;
+  }
+}
+
+.today-work-content-empty {
+  display: block;
+  border-radius: 30px;
+  border: 2px solid var(---N_, #b90000);
+  background: var(---N___, #fff);
+  @media screen and (max-width: 850px) {
+    height: 27px;
+  }
+}
+
+.today-work-content-title-empty {
+  border-radius: 30px 0 0 30px;
+  // background: var(---N_, #b90000);
+  // width: 119.053px;
+  height: 44.676px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  @media screen and (max-width: 850px) {
+    width: 60px;
+    height: 23px !important;
+  }
+}
+
+.today-work-content-title-empty p {
+  // color: var(---N_, #ffda89);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.95px;
+  @include yu-mincho-regular();
+
+  @media screen and (max-width: 850px) {
+    font-size: 11px;
+    color: #ffe500 !important;
+  }
+}
+
+.today-work-content-time {
+  width: 195.837px;
+  height: 44.885px;
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 0px 30px 30px 0px;
+
+  @media screen and (max-width: 850px) {
+    width: 125px;
+    border-radius: 20px;
+    height: 23px !important;
+    padding: 0px;
+  }
+}
+
+.today-work-content-time p {
+  color: var(---N__, #2a1a08);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1.54px;
+  @include times-new-roman();
+  @media screen and (max-width: 850px) {
+    font-size: 14px;
+    color: #000000 !important;
+  }
+}
+
+.photo-diary-details-section-content-right {
+  display: flex;
+  max-width: 730px;
+  width: 60%;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+@media screen and (max-width: 850px) {
+  .photo-diary-details-section-content-right {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.blog-title {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  justify-items: left;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-title p {
+  color: var(---N___, #171923);
+  @include yu-mincho-regular();
+  font-size: 24px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.photo-diary-details-section-content-right hr {
+  width: 100%;
+  height: 1px;
+  border-color: #394022;
+  margin-bottom: 10px;
+}
+
+.blog-time {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.blog-time p {
+  color: var(---N___, #171923);
+  text-align: right;
+  @include yu-mincho-regular();
+  font-size: 20px;
+  text-align: right;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+  @media screen and (max-width: 850px) {
+    font-size: 17px !important;
+  }
+}
+
+.photo-diary-image {
+  display: flex;
+  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto;
+
+  @media screen and (max-width: 850px) {
+    margin: 0px auto;
+  }
+}
+
+.photo-diary-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.blog-content {
+  align-self: stretch;
+  margin-bottom: 20px;
+}
+
+.blog-content p {
+  color: var(---N___, #171923);
+  @include yu-mincho-regular();
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px; /* 161.111% */
+
+  @media screen and (max-width: 850px) {
+    font-size: 17px !important;
+  }
+}
+
+.blog-pagination {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  margin: 30px 0;
+}
+
+.blog-pagination-btn {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  color: #2a1a08;
+  @include yu-mincho-regular();
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  p {
+    margin: 0;
+    color: #2a1a08;
+    @include yu-mincho-regular();
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.blog-pagination-prev {
+  width: 112px;
+  border-radius: 4px 0 0 4px;
+  padding: 0 20px;
+}
+
+.blog-pagination-list {
+  width: 108px;
+  border-radius: 0;
+  padding: 0 10px;
+  border-left: none;
+  border-right: none;
+}
+
+.blog-pagination-next {
+  width: 112px;
+  border-radius: 0 4px 4px 0;
+  padding: 0 20px;
+  background: #394022;
+  border-color: #2a1a08;
+  
+
+  p {
+    font-size: 16px;
+    color: #FFF;
+  }
+}
+
+.blog-pagination-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.diary-details-mobile-calendar {
+  width: 100%;
+  background: white;
+  padding: 25px 0;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  .diary-details-left-calendar-content {
+    width: 100%;
+  }
+
+  // FullCalendar custom styles for mobile
+  .fc {
+    font-family: sans-serif;
+
+    .fc-header-toolbar {
+      margin-bottom: 1.5rem;
+
+      .fc-button {
+        background-color: transparent;
+        border: none;
+        color: #2a1a08;
+        font-size: 16px;
+        padding: 0.5rem;
+
+        &:hover {
+          background-color: rgba(255, 218, 137, 0.3);
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      .fc-toolbar-title {
+        font-size: 18px;
+        font-weight: 400;
+        color: #2a1a08;
+      }
+    }
+
+    .fc-daygrid-day {
+      &.fc-day-other {
+        .fc-daygrid-day-number {
+          color: #bd902f;
+        }
+      }
+    }
+
+    .fc-daygrid-day-number {
+      color: #2a1a08;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .fc-daygrid-day.fc-day-today {
+      background-color: transparent;
+    }
+
+    .fc-event {
+      background-color: #ffda89;
+      border: none;
+      border-radius: 0;
+    }
+
+    .fc-col-header-cell {
+      .fc-col-header-cell-cushion {
+        color: #2a1a08;
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.fc .fc-daygrid-day-number{
+  @include times-new-roman();
+}
+.fc .fc-day-other {
+  color: #D90D32;        /* グレー */
+  // background-color: #f9fafb;
+}

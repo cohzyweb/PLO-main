@@ -1,0 +1,234 @@
+// Import global variables and utilities
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+
+.schedule-info {
+  display: flex;
+  // align-items: flex-start;
+  align-items: center;
+  // gap: 0.625rem;
+  padding: 0;
+
+  // Schedule variant: hide on mobile
+  &.schedule-info-schedule {
+    // @media screen and (max-width: 850px) {
+    //   display: none;
+    // }
+  }
+
+  // New-girl variant: different responsive behavior
+  &.schedule-info-new-girl {
+    // border-top: 6px solid #0D0709;
+    // border-bottom: 6px solid #0D0709;
+    @media (max-width: 1200px) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 850px) {
+      .schedule-info-button {
+        display: none;
+      }
+    }
+  }
+
+  // Castlist variant: different responsive behavior
+  &.schedule-info-castlist {
+    @media (max-width: 1200px) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 850px) {
+      flex-direction: column;
+      width: 100%;
+
+      .schedule-info-header {
+        width: 100%;
+        order: 1;
+      }
+
+      .schedule-info-description {
+        width: 100%;
+        order: 2;
+      }
+      .schedule-info-description p {
+        text-align: center;
+      }
+
+      .schedule-info-button {
+        display: flex;
+        width: 100%;
+        order: 3;
+        border-left: none;
+        border-top: 3px solid;
+        height: auto;
+        padding: 1.25rem 2.5rem;
+      }
+    }
+  }
+}
+
+.schedule-info-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1.6875rem 4.0625rem;
+  flex-shrink: 0;
+}
+
+.schedule-info-icon {
+  width: 2.1875rem;
+  height: 2.1875rem;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.schedule-info-title {
+  @include M_PLUS_1();
+  @include responsive-font(25px, 33px);
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  white-space: nowrap;
+
+}
+
+.schedule-info-description {
+  display: flex;
+  align-items: center;
+  border-left: 3px solid;
+  padding: 0 0 0 3.75rem;
+  height: 6.375rem;
+  flex: 1;
+}
+
+.schedule-info-description p {
+  @include M_PLUS_1();
+  @include responsive-font(16px, 26px);
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+
+  // New-girl variant uses smaller font
+  .schedule-info-new-girl & {
+    @include responsive-font(17px, 24px);
+    white-space: nowrap;
+  }
+}
+
+.schedule-info-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3125rem;
+  border-left: 3px solid;
+  padding: 0 3.75rem;
+  height: 6.375rem;
+  width: 14.375rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  p {
+    @include M_PLUS_1();
+    @include responsive-font(21px, 21px);
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+.schedule-info-underline {
+  width: 100%;
+  height: 3px;
+  margin-top: -3px;
+}
+
+// New-girl variant responsive styles
+.schedule-info-new-girl {
+  @media (max-width: 1200px) {
+    .schedule-info-header {
+      justify-content: center;
+      justify-items: center;
+      inline-size: -webkit-fill-available;
+      text-align: center;
+      padding: 10px 2.5rem;
+    }
+
+    .schedule-info-description {
+      flex: 1 1 100%;
+      padding: 10px 30px;
+      border-left: none;
+      border-top: 3px solid;
+      height: auto;
+      justify-content: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      p {
+        white-space: normal;
+        text-align: center;
+      }
+    }
+
+    .schedule-info-button {
+      width: 100%;
+      border-left: none;
+      border-top: 3px solid;
+      height: auto;
+      padding: 1.25rem 2.5rem;
+    }
+  }
+}
+
+// Castlist variant responsive styles
+.schedule-info-castlist {
+  @media (max-width: 1200px) {
+    .schedule-info-header {
+      justify-content: center;
+      justify-items: center;
+      inline-size: -webkit-fill-available;
+      text-align: center;
+      padding: 1.25rem 2.5rem;
+    }
+
+    .schedule-info-description {
+      flex: 1 1 100%;
+      padding: 1.25rem 2.5rem;
+      border: none;
+      height: auto;
+      justify-content: center;
+
+      p {
+        white-space: normal;
+        text-align: center;
+      }
+    }
+
+    .schedule-info-button {
+      width: 100%;
+      border-left: 6px solid;
+      border-right: 6px solid;
+      border-top: none;
+      height: auto;
+      padding: 1.25rem 2.5rem;
+    }
+  }
+}
+
+// Support for SVG icons in header
+.schedule-info-header {
+  svg {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    flex-shrink: 0;
+  }
+}
+

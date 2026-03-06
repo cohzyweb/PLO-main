@@ -1,0 +1,309 @@
+// @use '../global/vars' as *;
+// @use '../global/reset';
+// @use '../global/base' as *;
+// @use '../global/utils';
+// @use '../mixins/button';
+// @use '../mixins/font' as *;
+// @use '../mixins/text';
+
+// .newface-card {
+//   background: $white;
+//   display: flex;
+//   flex-direction: row; // Figma has it horizontal
+//   gap: 20px;
+//   align-items: stretch;
+//   padding: 20px;
+//   border-radius: 20px;
+//   width: 100%;
+//   height: 100%;
+//   border: 5px solid #FF048E; // Default fallback (lovestory pink)
+//   position: relative;
+//   min-width: 0;
+
+//   // Shop specific borders
+//   &--pussycat {
+//     border-color: $shop-color-pussycat;
+//   }
+
+//   &--shizuku {
+//     border-color: $shop-color-shizuku;
+//   }
+
+//   &--miyabi {
+//     border-color: $shop-color-miyabi;
+//   }
+
+//   &--en {
+//     border-color: $shop-color-en;
+//   }
+
+//   &--siroganeze {
+//     border-color: $shop-color-siroganeze;
+//   }
+
+//   &--lovestory {
+//     border-color: $shop-color-lovestory;
+//   }
+
+//   @media #{media-query(sm)},
+//   #{media-query(xs)} {
+//     flex-direction: column;
+//     padding: 15px;
+//     gap: 15px;
+//   }
+
+//   &-image {
+//     width: 255px; // Figma width
+//     flex-shrink: 0;
+//     position: relative;
+//     border-radius: 10px; // Image didn't specify radius but 10px looks good inside 20px card
+//     overflow: hidden;
+
+//     // maintain aspect ratio
+//     &::before {
+//       content: "";
+//       display: block;
+//       padding-top: calc(340 / 255 * 100%); // 3:4 aspect ratio
+//     }
+
+//     @media #{media-query(sm)},
+//     #{media-query(xs)} {
+//       width: 100%;
+
+//       &::before {
+//         padding-top: calc(340 / 255 * 100%);
+//       }
+//     }
+
+//     &-photo,
+//     &-placeholder {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//     }
+
+//     &-slider {
+//       position: absolute;
+//       inset: 0;
+//       z-index: 0;
+//       width: 100%;
+//       height: 100%;
+//     }
+
+//     // &-slider .swiper-wrapper,
+//     // &-slider .swiper-slide {
+//     //   width: 100%;
+//     //   height: 100%;
+//     // }
+
+//     &-slide-photo {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//       display: block;
+//     }
+
+//     &-pagination {
+//       position: absolute;
+//       left: 0;
+//       right: 0;
+//       bottom: 8px;
+//       z-index: 2;
+//       display: flex;
+//       justify-content: center;
+//       gap: 6px;
+//     }
+
+//     &-pagination .swiper-pagination-bullet {
+//       width: 7px;
+//       height: 7px;
+//       margin: 0 !important;
+//       background: rgba(255, 255, 255, 0.7);
+//       opacity: 1;
+//     }
+
+//     &-pagination .swiper-pagination-bullet-active {
+//       background: #fff;
+//     }
+
+//     &-placeholder {
+//       background: #F2F2F2;
+//     }
+
+//     &-frame {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       object-fit: contain;
+//       z-index: 1;
+//       pointer-events: none;
+//     }
+//   }
+
+//   &-info {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     flex: 1;
+//     gap: 20px;
+//     min-width: 0;
+//   }
+
+//   &-header {
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+//   }
+
+//   &-date-new {
+//     display: flex;
+//     align-items: flex-end;
+//     gap: 4px;
+//     margin-bottom: 5px;
+//   }
+
+//   &-date {
+//     @include Elina();
+//     font-size: 32px;
+//     font-weight: 400;
+//     color: #021a21;
+//     line-height: 1;
+//   }
+
+//   &-new {
+//     @include Elina();
+//     font-size: 34px;
+//     font-weight: 400;
+//     color: #FF048E;
+//     line-height: 1;
+//   }
+
+//   &-divider {
+//     width: 100%;
+//     height: 2px;
+//     background: linear-gradient(90deg, rgba(235, 142, 155, 1) 0%, rgba(255, 255, 255, 0) 100%);
+//   }
+
+
+
+//   &-stats-group {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 5px;
+//     margin-top: 5px;
+//     margin-bottom: 5px;
+//   }
+
+//   &-name {
+//     @include inter();
+//     font-size: 31px;
+//     font-weight: 600;
+//     color: #021a21;
+//     letter-spacing: -1.24px;
+//     margin: 0;
+//     line-height: 1.2;
+
+//     @media #{media-query(sm)},
+//     #{media-query(xs)} {
+//       font-size: 22px;
+//     }
+//   }
+
+//   &-measurements {
+//     @include YuGothic();
+//     font-size: 21px;
+//     font-weight: 500;
+//     color: #021a21;
+//     margin: 0;
+//     line-height: 1.2;
+
+//     @media #{media-query(sm)},
+//     #{media-query(xs)} {
+//       font-size: 16px;
+//     }
+//   }
+
+//   &-message {
+//     border: 1px solid #D9D9D9;
+//     border-radius: 10px;
+//     height: 100px; // Fixed height in figma
+//     padding: 5px 10px;
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+
+//     &-content {
+//       flex: 1;
+//       overflow-y: auto;
+//       overflow-x: hidden;
+//       padding-right: 5px;
+
+//       scrollbar-width: thin;
+//       scrollbar-color: #D9D9D9 transparent;
+
+//       &::-webkit-scrollbar {
+//         width: 7px;
+//       }
+
+//       &::-webkit-scrollbar-track {
+//         background: transparent;
+//       }
+
+//       &::-webkit-scrollbar-thumb {
+//         background: #D9D9D9;
+//         border-radius: 3.5px;
+//       }
+//     }
+
+//     &-text {
+//       @include YuGothic();
+//       font-size: 18px;
+//       font-weight: 500;
+//       color: #021a21;
+//       line-height: 1.4;
+//       margin: 0;
+//       white-space: pre-wrap;
+//       word-break: break-all;
+
+//       @media #{media-query(sm)},
+//       #{media-query(xs)} {
+//         font-size: 14px;
+//       }
+//     }
+//   }
+
+//   &-shop-button {
+//     background: #021a21;
+//     color: $white;
+//     border-radius: 25px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     padding: 8px 15px;
+//     text-decoration: none;
+//     transition: opacity 0.2s;
+//     width: 100%;
+//     margin-top: auto;
+//     align-self: stretch;
+
+//     &:hover {
+//       opacity: 0.9;
+//     }
+
+//     &-text {
+//       @include YuGothic();
+//       font-size: 23px;
+//       font-weight: 700;
+
+//       @media #{media-query(sm)},
+//       #{media-query(xs)} {
+//         font-size: 18px;
+//       }
+//     }
+//   }
+// }

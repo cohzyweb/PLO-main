@@ -1,0 +1,119 @@
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+
+.event-card{
+    padding: 30px;
+    border-bottom: 1px solid #EAF205;
+    display: flex;
+    gap: 80px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+    
+    &:visited {
+        color: inherit;
+    }
+    
+    @media screen and (max-width: 1024px) {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    @media screen and (max-width: 850px) {
+        padding: 20px 0px;
+    }
+}
+
+.event-card-image{
+    width: 100%;
+    max-width: 500px;
+    flex-shrink: 0;
+    img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
+    @media screen and (max-width: 1024px) {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.event-card-content{
+    background-color: $white;
+    border-radius: 15px;
+    padding: 30px;
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media screen and (max-width: 850px) {
+    .event-card-content{
+        gap: 10px;
+    }
+}
+
+.event-card-title {
+    @include YuGothic();
+    @include responsive-font(25px, 25px);
+    font-weight: 600;
+    color: var(---N__, #2A1A08);
+}   
+
+.event-card-text{
+    @include YuGothic();
+    @include responsive-font(15px, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31px;
+    color: var(---N__, #2A1A08);
+    white-space: pre-line;
+}
+.event-card-text p {
+    @include YuGothic();
+    @include responsive-font(15px, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31px;
+    color: var(---N__, #2A1A08);
+    white-space: pre-line;
+
+}
+@media screen and (max-width: 850px) {
+    .event-card-text{
+        line-height: 27px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        @include responsive-line-clamp(5, 14, 450px, 850px);
+        -webkit-box-orient: vertical;
+    }
+}
+
+.event-card-link {
+    display: none;
+    
+    @media screen and (max-width: 850px) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 5px;
+        margin-top: auto;
+    }
+}
+
+.event-card-link-text {
+    @include yu-mincho-regular();
+    @include responsive-font(17px, 17px);
+    font-weight: 600;
+    color: var(---N__, #2A1A08);
+}
+

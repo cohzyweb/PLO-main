@@ -1,0 +1,30 @@
+@use '../../global/vars' as *;
+@use '../../mixins/font' as *;
+@use './component/new-girl-card' as *;
+@use './component/pagination' as *;
+
+.newcast-section{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    padding: 30px;
+    background: rgba(242, 238, 233, 0.85);
+    gap: 40px;
+    margin: 0 auto;
+    
+    @media (max-width: 850px) {
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 20px;
+    }
+    
+    .new-girl-card {
+        width: 100%;
+        min-width: unset;
+        max-width: 100%;
+    }
+}
+.newcast-pagination {
+    margin-top: 20px;
+    text-align: center;
+}

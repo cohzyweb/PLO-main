@@ -1,0 +1,181 @@
+@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+// Groups Shop Page (Figma: 1231:10648)
+.groups-shop {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.groups-shop__panel {
+  width: min(1360px, 100%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px 0;
+}
+
+.groups-shop__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  padding: 0 30px;
+
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+}
+
+.groups-shop-card {
+  // Figma card is a fixed-height block with image on top, text in middle, info pinned to bottom.
+  display: grid;
+  grid-template-rows: 160px 1fr auto;
+  gap: 0;
+  background: #fff;
+  border: 2px solid #021a21;
+  border-radius: 20px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+
+  &:hover {
+    transform: translateY(-1px);
+    transition: transform 0.15s ease;
+  }
+}
+
+.groups-shop-card__image {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  margin: 0;
+}
+
+.groups-shop-card__logo {
+  width: auto;
+  height: auto;
+  max-width: 86%;
+  max-height: 78%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.groups-shop-card__logo--shizuku {
+  max-width: 72%;
+  max-height: 88%;
+}
+
+.groups-shop-card__logo--pussycat {
+  max-width: 90%;
+  max-height: 72%;
+}
+
+.groups-shop-card__logo--miyabi {
+  max-width: 82%;
+  max-height: 76%;
+}
+
+.groups-shop-card__logo--en {
+  max-width: 82%;
+  max-height: 74%;
+}
+
+.groups-shop-card__logo--siroganeze {
+  max-width: 110%;
+  max-height: 70%;
+}
+
+.groups-shop-card__logo--lovestory {
+  max-width: 92%;
+  max-height: 72%;
+}
+
+.groups-shop-card__desc {
+  margin: 14px 0 0 0;
+  font-family: 'Open Sans', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 31px;
+  color: #021a21;
+  overflow: auto;
+  padding-right: 6px; // space for scrollbar so text doesn't sit under it
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and (max-width: 700px) {
+    overflow: visible;
+    padding-right: 0;
+  }
+}
+
+.groups-shop-card__info {
+  margin-top: 14px;
+  padding-top: 15px;
+  border-top: 3px solid #021a21;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-self: end;
+}
+
+.groups-shop-card__row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.groups-shop-card__row--address {
+  align-items: flex-start;
+}
+
+.groups-shop-card__label {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  color: #021a21;
+  flex: 0 0 auto;
+  min-width: 68px;
+  text-align: center;
+}
+
+.groups-shop-card__label--tel {
+  letter-spacing: 16.15px; // matches design "TEL" tracking look
+}
+
+.groups-shop-card__sep {
+  width: 1px;
+  height: 20px;
+  background: #021a21;
+  flex: 0 0 auto;
+  opacity: 0.9;
+}
+
+.groups-shop-card__row--address .groups-shop-card__sep {
+  height: 44px; // matches longer separator in Figma for multi-line address
+}
+
+.groups-shop-card__value {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #021a21;
+}
+
+.groups-shop-card__value--address {
+  .pc-only div + div {
+    margin-top: 0;
+  }
+}

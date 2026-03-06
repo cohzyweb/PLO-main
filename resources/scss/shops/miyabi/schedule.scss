@@ -1,0 +1,137 @@
+@use "../../global/vars" as *;
+@use "../../mixins/font" as *;
+@use "./component/schedule-card" as *;
+@use './component/pagination' as *;
+.schedule-menu {
+  width: 100%;
+  background-color: $white;
+  padding: 32px 63px;
+  display: flex;
+  gap: 47px;
+}
+
+@media screen and (max-width: 850px) {
+  .schedule-menu {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 10px 10px;
+  }
+}
+
+.search-list {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+}
+@media screen and (max-width: 850px) {
+  .search-list {
+    margin-bottom: 5px;
+  }
+}
+.search-list p {
+  @include yu-mincho-regular();
+  font-weight: 600;
+  color: var(---N__, #0D0A0C);
+  font-style: normal;
+  line-height: normal;
+  @include responsive-font(21.8px, 26.4px);
+  white-space: nowrap;
+}
+
+.search-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 850px) {
+  .search-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 10px 0px;
+  }
+}
+.search-button {
+  display: inline-flex;
+  padding: 5px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  border: 2px solid var(---N_, #D90D32);
+  background: var(---N___, #fff);
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
+
+  &.active {
+
+    background-color: #D90D32;
+    p {
+      color: #FEFEFE !important;
+    }
+  }
+}
+
+// .search-button .active {
+//   background-color: #05F2DB;
+// }
+
+.search-button p {
+  @include yu-mincho-regular();
+  font-weight: 600;
+  color: var(---N__, #0F0002);
+  font-style: normal;
+  line-height: normal;
+  @include responsive-font(22px, 22px);
+}
+
+@media screen and (max-width: 850px) {
+  .search-button {
+    padding: 5px 15px;
+  }
+  .search-button p {
+    padding: 0px 10px;
+  }
+}
+
+.schedule-card-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  @media #{media-query(xl)} {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  gap: 1.25rem;
+  padding: 1.875rem;
+  // background: var(
+  //   ---N,
+  //   linear-gradient(90deg, rgba(42, 26, 8, 0.7) 58.65%, rgba(0, 0, 0, 0) 100%)
+  // );
+  background: var(
+    ---N,
+    #590202
+  );
+}
+
+@media (max-width: 1400px) {
+  .schedule-card-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .schedule-card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 850px) {
+  .schedule-card-list {
+    padding: 15px;
+  }
+}
+.schedule-pagination {
+    margin-top: 20px;
+    text-align: center;
+}

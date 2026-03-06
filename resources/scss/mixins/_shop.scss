@@ -1,0 +1,67 @@
+@use 'sass:math';
+@use 'sass:color';
+@use '../global/vars' as *;
+
+
+$shop-colors: (
+  shizuku: $shop-color-shizuku,
+  miyabi: $shop-color-miyabi,
+  pussycat: $shop-color-pussycat,
+  en: $shop-color-en,
+  siroganeze: $shop-color-siroganeze,
+  lovestory: $shop-color-lovestory
+);
+
+@mixin shop-bgcolor-modifiers {
+  @each $key, $value in $shop-colors {
+    &.--#{$key} {
+      background-color: $value;
+    }
+  }
+}
+
+@mixin shop-bgcolor-modifiers-opacity($opacity) {
+  @each $key, $value in $shop-colors {
+    &.--#{$key} {
+      background-color: rgba($value, $opacity);
+    }
+  }
+}
+
+@mixin data-shop-bgcolor-modifiers {
+  @each $key, $value in $shop-colors {
+    &[data-shop="#{$key}"] {
+      background-color: $value;
+      &:hover {
+        background-color: color.adjust($value, $lightness: -10%);
+      }
+    }
+  }
+}
+
+@mixin shop-color-modifiers {
+  @each $key, $value in $shop-colors {
+    &.--#{$key} {
+      color: $value;
+    }
+  }
+}
+
+@mixin shop-border-color-modifiers {
+  @each $key, $value in $shop-colors {
+    &.--#{$key} {
+      border-color: $value;
+    }
+  }
+}
+
+@mixin shop-border-color-hover-modifiers {
+  @each $key, $value in $shop-colors {
+    &.--#{$key} {
+      &:hover {
+
+        border-color: $value;
+      }
+    }
+  }
+}

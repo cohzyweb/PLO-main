@@ -1,0 +1,130 @@
+@use 'global/vars' as *;
+@use 'global/reset';
+@use 'global/base';
+@use 'global/utils';
+@use 'group/_footer.scss';
+@use 'group/_headerfront.scss';
+@use 'group/law.scss';
+@use 'group/_shopintro.scss';
+@use 'group/_bottom-nav.scss';
+@use 'group/_pushbar.scss';
+// @use 'group/_sidebar.scss';
+
+// Body fade-in animation
+@keyframes fadeInBody {
+  0% {
+    opacity: 0;
+    // transform: translateY(20px);
+  }
+  50% {
+    opacity: 0.5;
+    // transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    // transform: translateY(0);
+  }
+}
+
+body {
+  opacity: 0;
+  animation: fadeInBody 2.5s ease-out forwards;
+  animation-delay: 2.5s; // Wait a bit before starting the animation
+  font-family: $font-gothic;
+}
+
+// html.wf-loading body {
+//   visibility: hidden;
+//   // animation: none; // Disable animation while fonts are loading
+// }
+
+// html.wf-inactive body {
+//   font-family: "Noto Sans JP", sans-serif;
+//   // animation: fadeInBody 1.5s ease-out forwards; // Re-enable animation after font load fails
+// }
+
+// html.wf-active body {
+//   // animation: fadeInBody 1.5s ease-out forwards; // Enable animation after fonts load successfully
+// }
+
+.front-title {
+  display: inline-block;
+
+  // Split each character into spans for individual animation
+  span {
+    display: inline-block;
+    animation: colorChange 3s infinite;
+
+    // Stagger the animation for each character
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.2}s;
+      }
+    }
+  }
+}
+
+
+// Color change animation
+@keyframes colorChange {
+  // 0%, 100% {
+  //   color: #000;
+  // }
+  // 10% {
+  //   color: #DC53D7; // pussycat
+  // }
+  // 20% {
+  //   color: #4068fb; // shizuku
+  // }
+  // 30% {
+  //   color: #FF8C71; // miyabi
+  // }
+  // 40% {
+  //   color: #FFC557; // en
+  // }
+  // 50% {
+  //   color: #009162; // shiroganeze
+  // }
+  // 60% {
+  //   color: #FF5AA2; // lovestory
+  // }
+  // 70% {
+  //   color: #DC53D7; // back to pussycat
+  // }
+  // 80% {
+  //   color: #4068fb; // back to shizuku
+  // }
+  // 90% {
+  //   color: #FF8C71; // back to miyabi
+  // }
+  0%, 100% {
+    color: $shop-color-shizuku;
+  }
+  10% {
+    color: $shop-color-miyabi; // pussycat
+  }
+  20% {
+    color: $shop-color-pussycat; // shizuku
+  }
+  30% {
+    color: $shop-color-en; // miyabi
+  }
+  40% {
+    color: $shop-color-siroganeze; // en
+  }
+  50% {
+    color: $shop-color-lovestory; // shiroganeze
+  }
+  60% {
+    color: $shop-color-shizuku; // lovestory
+  }
+  70% {
+    color: $shop-color-miyabi; // back to pussycat
+  }
+  80% {
+    color: $shop-color-pussycat; // back to shizuku
+  }
+  90% {
+    color: $shop-color-en; // back to miyabi
+  }
+}

@@ -1,0 +1,177 @@
+@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/button';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+// Generic Groups Pagination (reusable across all group pages)
+.groups-pagination,
+.diary-pagination {
+    display: flex;
+    gap: clamp(12px, 2vw, 16px);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    @media #{media-query(sm)} {
+        justify-content: center;
+        width: 100%;
+        gap: 6px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    
+    @media #{media-query(xs)} {
+        justify-content: flex-start;
+        width: 100%;
+        gap: 4px;
+        padding: 0 10px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.groups-pagination-btn,
+.diary-pagination-btn {
+    width: clamp(40px, 5vw, 48px);
+    height: clamp(40px, 5vw, 48px);
+    border: 1px solid #bebebe;
+    border-radius: clamp(3px, 0.5vw, 4px);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    
+    @media #{media-query(sm)} {
+        width: 32px;
+        height: 32px;
+    }
+    
+    @media #{media-query(xs)} {
+        width: 28px;
+        height: 28px;
+    }
+    
+    &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+    
+    svg {
+        width: clamp(20px, 2.5vw, 24px);
+        height: clamp(20px, 2.5vw, 24px);
+        
+        @media #{media-query(sm)} {
+            width: 18px;
+            height: 18px;
+        }
+        
+        @media #{media-query(xs)} {
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+
+.groups-pagination-page,
+.diary-pagination-page {
+    min-width: clamp(40px, 5vw, 48px);
+    width: clamp(40px, 5vw, 48px);
+    height: clamp(40px, 5vw, 48px);
+    border: 1px solid #bebebe;
+    border-radius: clamp(3px, 0.5vw, 4px);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: normal;
+    color: #000;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    
+    @media #{media-query(sm)} {
+        min-width: 32px;
+        width: auto;
+        height: 32px;
+        padding: 0 6px;
+        font-size: 12px;
+    }
+    
+    @media #{media-query(xs)} {
+        min-width: 28px;
+        width: auto;
+        height: 28px;
+        padding: 0 4px;
+        font-size: 11px;
+    }
+    
+    &--active {
+        background: #EB8E9B;
+        border-color: #EB8E9B;
+        color: white;
+        
+        @media #{media-query(sm)}, #{media-query(xs)} {
+            background: #e9e1ff;
+            border-color: #7949ff;
+            color: #7949ff;
+        }
+    }
+}
+
+.groups-pagination-ellipsis,
+.diary-pagination-ellipsis {
+    width: clamp(40px, 5vw, 48px);
+    height: clamp(40px, 5vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: normal;
+    color: #000;
+    flex-shrink: 0;
+    
+    @media #{media-query(sm)} {
+        width: 24px;
+        height: 32px;
+        font-size: 12px;
+    }
+    
+    @media #{media-query(xs)} {
+        width: 20px;
+        height: 28px;
+        font-size: 11px;
+    }
+}
+
+// Hide pagination elements on mobile
+.groups-pagination-mobile-hide,
+.diary-pagination-mobile-hide {
+    @media #{media-query(sm)}, #{media-query(xs)} {
+        display: none !important;
+    }
+}

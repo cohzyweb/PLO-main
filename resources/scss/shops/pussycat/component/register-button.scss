@@ -1,0 +1,33 @@
+// Import global variables and utilities
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+@use '../../../functions/size' as *;
+.register-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.625rem;
+  padding: 0.9375rem 1.25rem;
+  margin-top: 1.25rem;
+  margin-right: 0.625rem;
+  gap: 0.4375rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  
+  p {
+    @include inter();
+    @include responsive-font(12px, 15.62px);
+    line-height: 1.1875rem;
+    font-weight: 600 !important;
+    text-align: center;
+    letter-spacing: 0.04em;
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 850px) {
+    display: none;
+  }
+}
+

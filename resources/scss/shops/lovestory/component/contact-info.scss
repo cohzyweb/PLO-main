@@ -1,0 +1,152 @@
+// Import global variables and utilities
+@use '../../../global/vars' as *;
+@use '../../../mixins/font' as *;
+
+.contact-info{
+  @media screen and (max-width: 850px) {
+    display: none;
+  }
+  @include responsive-width(40.375rem, 53.698rem);
+  // width: 40.375rem;
+  // max-width: 40.375rem;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-wrapper {
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+}
+
+.contact-phone{
+  padding: 0.625rem 0.9375rem;
+  width: 45%;
+}
+
+.contact-phone-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+}
+
+.contact-phone-main {
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+}
+
+.contact-phone-icon {
+  @include responsive-width(2.4375rem, 3.241rem);
+  // width: 2.4375rem;
+  @include responsive-height(2.4375rem, 3.241rem);
+  // height: 2.4375rem;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+}
+
+.contact-phone-number {
+  @include Kulim_Park();
+  @include responsive-font(24px, 45px);
+  line-height: 2.9375rem;
+  color: #F2387C;
+  margin: 0;
+  font-weight: 600;
+  // padding-bottom: 0.8rem;
+}
+
+.contact-email {
+  p {
+    @include Kulim_Park();
+    @include responsive-font(12px, 18px);
+    line-height: 1rem;
+    color: #F2387C;
+    margin: 0;
+    text-align: center;
+    font-weight: 400;
+  }
+}
+
+.contact-address {
+  flex: 1;
+  opacity: 80%;
+  padding: 0.625rem 0.9375rem;
+}
+
+.contact-address-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-address-text {
+  @include M_PLUS_1();
+  font-weight: 300 !important;
+  color: #fff;
+  @include responsive-font(12px, 18px);
+  line-height: 1.25rem;
+  margin: 0;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-button-hours {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  background: rgba(255, 255, 255, 1.0);
+  border-radius: 1.25rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 0.3125rem;
+}
+
+.contact-button-hours p {
+  @include Kulim_Park;
+  @include responsive-font(12px,18px);
+  font-weight: 400;
+  // padding-bottom: 0.2rem;
+}
+.contact-button-credit{
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 1.25rem;
+  padding: 0.125rem 1.25rem;
+  color: #fff;
+  @include responsive-font(12px, 14.29px);
+}
+
+.contact-button-credit p {
+  @include M_PLUS_1();
+  font-weight: 600;
+  // @include Hiragino_Mincho_Pro();
+  // font-weight: 500 !important;
+}
+
+.contact-note {
+  background: #FFF9FE;
+  opacity: 0.8;
+  border-radius: 0 0 1.875rem 0;
+  padding: 0.3125rem;
+  p {
+    @include responsive-font(12px, 19.95px);
+    @include M_PLUS_1();
+    font-weight: 400 !important;
+    color: #1C2D48;
+    margin: 0;
+    text-align: center;
+    line-height: 1.1875rem;
+  }
+}
+

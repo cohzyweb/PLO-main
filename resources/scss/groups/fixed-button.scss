@@ -1,0 +1,102 @@
+@use '../global/vars' as *;
+@use '../global/reset';
+@use '../global/base' as *;
+@use '../global/utils';
+@use '../mixins/button';
+@use '../mixins/font' as *;
+@use '../mixins/text';
+
+// Fixed Button Styles for Groups Sub Page
+// Based on Figma design: node-id=1231-8327
+.fixed-groups-button {
+  position: fixed;
+  right: 0;
+  top: 62vh;
+  z-index: 2000;
+  display: block;
+  width: 233px;
+  height: 81px;
+  background: linear-gradient(to right, #ee5f8b, #ff048e);
+  border-radius: 30px 0 0 30px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    transform: translateX(-5px);
+    box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateX(-3px);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+    padding-left: 18px;
+    padding-right: 55px;
+  }
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  &__text {
+    @include YuGothic();
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.96px;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1024px) {
+    width: 180px;
+    height: 65px;
+
+    &__inner {
+      padding-left: 12px;
+      padding-right: 30px;
+      gap: 6px;
+    }
+
+    &__icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    &__text {
+      font-size: 18px;
+      letter-spacing: -0.72px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

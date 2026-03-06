@@ -1,0 +1,247 @@
+// @use '../global/vars' as *;
+// @use '../global/reset';
+// @use '../global/base' as *;
+// @use '../global/utils';
+// @use '../mixins/button';
+// @use '../mixins/font' as *;
+// @use '../mixins/text';
+
+// .movie {
+//   position: relative;
+
+//   &-bgs {
+//     position: relative;
+//     width: 100%;
+//     height: auto;
+//     &-bg1 {
+//       position: absolute;
+//       top: -220px;
+//       left: 0;
+//       width: 100%;
+//       height: 1930px;
+//       // transform-origin: left top;
+//       // transform: rotate(8.262deg) scale(0.36);
+//       // width: 100%;
+//       // height: 100%;
+//       object-fit: cover;
+//       @media #{media-query(sm)},#{media-query(xs)} {
+//         top: -210px;
+//         left: 0;
+//         width: 100%;
+//         height: 1709px;
+//         object-fit: cover;
+
+//       }
+//       @media #{media-query(lg)} {
+//         top: -150px;
+//         height: 1284px;
+
+//       }
+//       @media #{media-query(xl)} {
+//         top: -185px;
+//         height: 1520px;
+
+//       }
+//       @media #{media-query(xxl)} {
+//         top: -125px;
+//         height: 1690px;
+
+//       }
+//     }
+//   }
+//   & .section-title {
+//     padding: 100px 0px 30px;
+
+//     &-en {
+//       z-index: 1;
+//     }
+//     &-jp {
+//       z-index: 1;
+//     }
+//   }
+//   &-contents {
+//     display: grid;
+//     padding: 30px 100px;
+//     grid-template-columns: repeat(3,1fr);
+//     gap: 15px;
+//     align-items: center;
+//     justify-content: center;
+
+//     @media #{media-query(sm)}, #{media-query(xs)} {
+//       padding: 20px;
+//       grid-template-columns: repeat(1,1fr);
+
+
+//     }
+//     &-item {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       justify-content: center;
+//       gap: 5px;
+
+//       &-movie {
+//         z-index: 1;
+//         width: 100%;
+//         @media #{media-query(sm)}, #{media-query(xs)} {
+//           // width: 335px;;
+//         }
+//       }
+//       &-detail {
+//         display: flex ;
+//         flex-direction: row;
+//         gap:5px;
+//         padding: 6px 7px;
+//         align-items: center;
+//         justify-content: space-between;
+//         background: #fff;
+//         width: 100%;
+//         @media #{media-query(sm)},#{media-query(xs)} {
+//           flex-direction: column;
+//         }
+//         &-date {
+//           @include YuGothic();
+//           font-size: 16px;
+//           font-style: normal;
+//           font-weight: 700;
+//           line-height: normal;
+//           color: #9A9A9A;
+//           padding: 0 5px;
+//           z-index: 1;
+//         }
+
+//         &-name {
+//           @include YuGothic();
+//           font-size: 17px;
+//           font-style: normal;
+//           font-weight: 700;
+//           line-height: normal;
+//           letter-spacing: -0.68px;
+//           color: #021A21;
+//           border-left: 1px solid #021A21;
+//           padding: 0 5px;
+//           z-index: 1;
+//           @media #{media-query(sm)}, #{media-query(xs)} {
+//             border-left: none;
+
+//           }
+//         }
+
+//         &-shop {
+//           display: flex;
+//           padding: 2px 0;
+//           justify-content: center;
+//           align-items: center;
+//           gap: 10px;
+//           flex: 1 0 0;
+//           background: #021A21;
+//           border-radius: 20px;
+//           padding: 5px 5px;
+//           @media #{media-query(sm)},#{media-query(xs)} {
+//             width: 100%;
+
+//           }
+//           z-index: 1;
+
+//           & span {
+//             @include YuGothic();
+//             font-size: 13px;
+//             font-style: normal;
+//             font-weight: 700;
+//             line-height: normal;
+//             color: #fff;
+//             letter-spacing: -0.52px;
+//             @media #{media-query(sm)},#{media-query(xs)} {
+//               font-size: 15px;
+
+//             }
+//             z-index: 1;
+
+//           }
+//         }
+//       }
+
+
+//       &-details {
+//         display: flex ;
+//         flex-direction: column;
+//         gap:5px;
+//         padding: 6px 7px;
+//         align-items: center;
+//         justify-content: space-between;
+//         background: #fff;
+//         width: 100%;
+//         @media #{media-query(sm)},#{media-query(xs)} {
+//           flex-direction: column;
+//         }
+//         &-row {
+//           display: flex;
+//           flex-direction: row;
+
+//         }
+//         &-date {
+//           @include YuGothic();
+//           font-size: 16px;
+//           font-style: normal;
+//           font-weight: 700;
+//           line-height: normal;
+//           color: #9A9A9A;
+//           padding: 0 5px;
+//           z-index: 1;
+
+//         }
+
+//         &-name {
+//           @include YuGothic();
+//           font-size: 17px;
+//           font-style: normal;
+//           font-weight: 700;
+//           line-height: normal;
+//           letter-spacing: -0.68px;
+//           color: #021A21;
+//           border-left: 1px solid #021A21;
+//           padding: 0 5px;
+//           @media #{media-query(sm)}, #{media-query(xs)} {
+//             border-left: none;
+
+//           }
+//           z-index: 1;
+//         }
+
+//         &-shop {
+//           display: flex;
+//           padding: 2px 0;
+//           justify-content: center;
+//           align-items: center;
+//           gap: 10px;
+//           flex: 1 0 0;
+//           background: #021A21;
+//           border-radius: 20px;
+//           padding: 5px 5px;
+//           @media #{media-query(sm)},#{media-query(xs)} {
+//             width: 100%;
+
+//           }
+//           z-index: 1;
+
+//           & span {
+//             @include YuGothic();
+//             font-size: 13px;
+//             font-style: normal;
+//             font-weight: 700;
+//             line-height: normal;
+//             color: #fff;
+//             letter-spacing: -0.52px;
+//             @media #{media-query(sm)},#{media-query(xs)} {
+//               font-size: 15px;
+
+//             }
+//             z-index: 1;
+
+//           }
+//         }
+//       }
+
+//     }
+//   }
+// }

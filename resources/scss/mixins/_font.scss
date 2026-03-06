@@ -1,0 +1,344 @@
+/**
+ * Font Mixins
+ */
+
+// Import Hiragino Mincho ProN W6 font
+@font-face {
+  font-family: "Hiragino Mincho ProN";
+  src: url("/assets/fonts/HiraginoMinchoProN-W6.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hiragino Mincho ProW6";
+  src: url("/assets/fonts/hiraminpro-w6.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hiragino Mincho ProW3";
+  src: url("/assets/fonts/hiraminpro-w3.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hiragino Mincho ProNW6";
+  src: url("/assets/fonts/Hiragino-Mincho-ProN-W6.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hiragino Mincho ProNW3";
+  src: url("/assets/fonts/Hiragino-Mincho-ProN-W3.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Didot Normal";
+  src: url("/assets/fonts/Didot.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yu Mincho";
+  src: url("/assets/fonts/yumin.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Import Yu Mincho Regular font
+@font-face {
+  font-family: "yu-mincho-regular";
+  src: url("/assets/fonts/yu-mincho-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YuGothic";
+  src: url("/assets/fonts/yugothib.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Times New Roman";
+  src: url("/assets/fonts/times.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AWConqueror-Std-Didot";
+  src: url("/assets/fonts/AWConqueror-Std-Didot.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Elina";
+  src: url("/assets/fonts/Elina.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: "Advent Pro";
+//   src: url("/assets/fonts/times.ttf") format("truetype");
+//   font-weight: 400;
+//   font-style: normal;
+//   font-display: swap;
+// }
+// @font-face {
+//   font-family: "Open Sans";
+//   src: url("/assets/fonts/times.ttf") format("truetype");
+//   font-weight: 400;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+@mixin serif() {
+  font-family: "Bentham", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin lustria() {
+  font-family: "Lustria", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin Hiragino_Mincho_Pro() {
+  font-family: "Hiragino Mincho ProW3", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+@mixin Hiragino_Mincho_Pro_W6() {
+  font-family: "Hiragino Mincho ProW6", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+@mixin Hiragino_Mincho_Pro_N() {
+  font-family: "Hiragino Mincho ProNW3", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+@mixin Hiragino_Mincho_Pro_NW6() {
+  font-family: "Hiragino Mincho ProNW6", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@mixin inter() {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin didot() {
+  font-family: "Didot Normal", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin yu-mincho-pr6n() {
+  font-family: "yu-mincho-pr6n", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin yu-mincho-regular() {
+  font-family: "Yu Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin times-new-roman() {
+  font-family: "Times New Roman", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin Pacifico() {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin YuGothic() {
+  font-family: "YuGothic", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin IBM_Plex_Mono() {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin Caveat() {
+  font-family: "Caveat", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin M_PLUS_1() {
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin Open_Sans() {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin Advent_Pro() {
+  font-family: "Advent Pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin Open_Sans() {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin Kulim_Park() {
+  font-family: "Kulim Park", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin AWConqueror_Std_Didot() {
+  // font-family: "AWConqueror-Std-Didot", serif;
+  font-family: "aw-conqueror-didot", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin Elina() {
+  font-family: "Elina", serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+// Formula: clamp(min, calc(min + (max - min) * ((100vw - min_vw) / (max_vw - min_vw))), max)
+// @mixin responsive-font($min, $max, $min-vw: 375px, $max-vw: 1440px) {
+@mixin responsive-font($min, $max, $min-vw: 375px, $max-vw: 1920px) {
+  font-size: clamp(
+    #{$min},
+    calc(
+      #{$min} + (#{$max} - #{$min}) * ((100vw - #{$min-vw}) /
+            (#{$max-vw} - #{$min-vw}))
+    ),
+    #{$max}
+  );
+}
+
+@mixin responsive-width($min, $max, $min-vw: 375px, $max-vw: 1920px) {
+  width: clamp(
+    #{$min},
+    calc(
+      #{$min} + (#{$max} - #{$min}) * ((100vw - #{$min-vw}) /
+            (#{$max-vw} - #{$min-vw}))
+    ),
+    #{$max}
+  );
+}
+@mixin responsive-height($min, $max, $min-vw: 375px, $max-vw: 1920px) {
+  height: clamp(
+    #{$min},
+    calc(
+      #{$min} + (#{$max} - #{$min}) * ((100vw - #{$min-vw}) /
+            (#{$max-vw} - #{$min-vw}))
+    ),
+    #{$max}
+  );
+}
+
+// @mixin responsive-top($min, $max, $min-vw, $max-vw) {
+//   top: clamp(
+//     #{$min},
+//     calc(
+//       #{$min} + (#{$max} - #{$min}) * ((100vw - #{$min-vw}) /
+//             (#{$max-vw} - #{$min-vw}))
+//     ),
+//     #{$max}
+//   );
+// }
+@mixin responsive-top($min, $max, $min-vw, $max-vw) {
+  top: clamp(
+    #{$min},
+    calc(
+      #{$max} + (#{$min} - #{$max}) * ((100vw - #{$min-vw}) /
+            (#{$max-vw} - #{$min-vw}))
+    ),
+    #{$max}
+  );
+}
+
+// @mixin responsive-size($min, $max, $min-vw, $max-vw) {
+//   height: clamp(
+//     #{$min},
+//     calc(
+//       #{$min} + (#{$max} - #{$min}) * ((100vw - #{$min-vw}) /
+//             (#{$max-vw} - #{$min-vw}))
+//     ),
+//     #{$max}
+//   );
+// }
+
+@mixin responsive-line-clamp($min, $max, $min-vw: 375px, $max-vw: 850px) {
+  // Since line-clamp is an integer, we use media queries for responsive behavior
+  // Start with minimum value
+  -webkit-line-clamp: $min;
+  line-clamp: $min;
+
+  // Calculate 5 breakpoints for smooth transition
+  $vw-range: $max-vw - $min-vw;
+  $value-range: $max - $min;
+
+  // Breakpoint 1: 25% of range
+  $bp1-vw: $min-vw + ($vw-range * 0.25);
+  $bp1-value: round($min + ($value-range * 0.25));
+  @media (min-width: #{$bp1-vw}) {
+    -webkit-line-clamp: $bp1-value;
+    line-clamp: $bp1-value;
+  }
+
+  // Breakpoint 2: 50% of range (midpoint)
+  $bp2-vw: $min-vw + ($vw-range * 0.5);
+  $bp2-value: round($min + ($value-range * 0.5));
+  @media (min-width: #{$bp2-vw}) {
+    -webkit-line-clamp: $bp2-value;
+    line-clamp: $bp2-value;
+  }
+
+  // Breakpoint 3: 75% of range
+  $bp3-vw: $min-vw + ($vw-range * 0.75);
+  $bp3-value: round($min + ($value-range * 0.75));
+  @media (min-width: #{$bp3-vw}) {
+    -webkit-line-clamp: $bp3-value;
+    line-clamp: $bp3-value;
+  }
+
+  // Breakpoint 4: Maximum value at large screens
+  @media (min-width: #{$max-vw}) {
+    -webkit-line-clamp: $max;
+    line-clamp: $max;
+  }
+}

@@ -1,0 +1,28 @@
+<?php
+return [
+    'thumbnail_required' => 'サムネイルは必須です',
+    'link_url_required' => 'リンクURLは必須です',
+    'shop_id_required' => '店舗は必須です',
+    'title_required' => 'タイトルは必須です',
+    'admin_banner_create_success' => 'バナー広告を作成しました',
+    'admin_banner_update_success' => 'バナー広告を更新しました',
+    'admin_banner_delete_success' => 'バナー広告を削除しました',
+    'admin_event_create_success' => 'イベントを作成しました',
+    'admin_event_update_success' => 'イベントを更新しました',
+    'admin_event_delete_success' => 'イベントを削除しました',
+    'admin_news_create_success' => 'ニュースを作成しました',
+    'admin_news_update_success' => 'ニュースを更新しました',
+    'admin_news_delete_success' => 'ニュースを削除しました',
+    'admin_fee_update_success' => '料金システムを更新しました',
+    'admin_pickup_update_success' => 'ピックアップを更新しました',
+    'admin_pickup_error' => '同じキャストは複数選択できません。',
+    'member_email_exists' => 'このメールアドレスはすでに登録されています。',
+    'admin_course_delete_success' => 'コースを削除しました',
+    'admin_option_rs_delete_success' => 'オプションを削除しました',
+    'admin_extend_delete_success' => '延長を削除しました',
+    'admin_appoint_delete_success' => '予約を削除しました',
+    'admin_system_update_success' => '料金システムを更新しました',
+    'admin_system_header_required' => 'ヘッター画像は必須です',
+    'admin_system_play_required' => 'プレイ画像は必須です',
+];
+?>
